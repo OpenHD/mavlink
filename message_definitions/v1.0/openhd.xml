@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+<mavlink>
+	<include>common.xml</include>
+	<messages>
+		<message id="150" name="OPENHD_CAMERA_STATUS">
+			<description>OPENHD_CAMERA_STATUS</description>
+			<field type="int8_t" name="brightness">brightness</field>
+		</message>
+	</messages>
+</mavlink>
+
+
