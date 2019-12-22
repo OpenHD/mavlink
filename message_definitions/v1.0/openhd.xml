@@ -21,6 +21,18 @@
 			<field type="uint32_t" name="injection_fail_cnt">injection_fail_cnt</field>			
 			<field type="uint8_t" name="current_signal_dbm">current_signal_dbm</field>
 		</message>
+		<message id="1230" name="OPENHD_AIR_LOAD">
+		    <wip />
+			<description>OPENHD_AIR_LOAD</description>
+			<field type="uint8_t" name="cpuload">cpuload</field>
+			<field type="uint8_t" name="temp">temp</field>
+		</message>
+		<message id="1231" name="OPENHD_GROUND_LOAD">
+		    <wip />
+			<description>OPENHD_GROUND_LOAD</description>
+			<field type="uint8_t" name="cpuload">cpuload</field>
+			<field type="uint8_t" name="temp">temp</field>
+		</message>
 	</messages>
 </mavlink>
 
