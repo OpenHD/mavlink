@@ -145,6 +145,7 @@ set(v1.0Definitions
     common.xml
     matrixpilot.xml
     minimal.xml
+    openhd.xml
     paparazzi.xml
     python_array_test.xml
     slugs.xml
