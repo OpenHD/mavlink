@@ -2,6 +2,25 @@
 <mavlink>
 	<include>common.xml</include>
 	<messages>
+		<message id="1210" name="OPENHD_GROUND_TELEMETRY">
+		    <wip />
+			<description>OPENHD_GROUND_TELEMETRY</description>
+			<field type="uint32_t" name="damaged_block_cnt">damaged_block_cnt</field>
+			<field type="uint32_t" name="lost_packet_cnt">lost_packet_cnt</field>
+      		<field type="uint32_t" name="received_packet_cnt">received_packet_cnt</field>
+			<field type="uint32_t" name="kbitrate">kbitrate</field>
+			<field type="uint32_t" name="kbitrate_measured">kbitrate_measured</field>
+			<field type="uint32_t" name="kbitrate_set">kbitrate_set</field>
+		</message>
+		<message id="1211" name="OPENHD_AIR_TELEMETRY">
+		    <wip />
+			<description>OPENHD_AIR_TELEMETRY</description>
+			<field type="uint32_t" name="damaged_block_cnt">damaged_block_cnt</field>
+			<field type="uint32_t" name="lost_packet_cnt">lost_packet_cnt</field>
+			<field type="uint32_t" name="skipped_packet_cnt">skipped_packet_cnt</field>
+			<field type="uint32_t" name="injection_fail_cnt">injection_fail_cnt</field>			
+			<field type="uint8_t" name="current_signal_dbm">current_signal_dbm</field>
+		</message>
 	</messages>
 </mavlink>
 
