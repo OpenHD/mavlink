@@ -2,6 +2,14 @@
 <mavlink>
 	<include>common.xml</include>
 	<messages>
+		<message id="1200" name="OPENHD_CAMERA_SETTINGS">
+			<description>OPENHD_CAMERA_SETTINGS</description>
+			<field type="uint8_t" name="brightness">brightness</field>
+			<field type="uint8_t" name="contrast">contrast</field>
+			<field type="uint8_t" name="saturation">saturation</field>
+			<field type="uint8_t" name="target_system">system id of the requesting system</field>
+      		<field type="uint8_t" name="target_component">component id of the requesting component</field>
+		</message>
 		<message id="1210" name="OPENHD_GROUND_TELEMETRY">
 		    <wip />
 			<description>OPENHD_GROUND_TELEMETRY</description>
@@ -42,6 +50,22 @@
 			<field type="uint8_t" name="temp">temp</field>
 		</message>
 	</messages>
+	<enums>
+		<enum name="OPENHD_CMD">
+		    <description>Commands for OpenHD</description>
+		    <entry value="11200" name="OPENHD_CMD_GET_CAMERA_SETTINGS" hasLocation="false" isDestination="false">
+			    <description>Get Open.HD camera settings</description>
+                <param index="1">Reserved (all remaining params)</param>
+		    </entry>
+			<entry value="11201" name="OPENHD_CMD_SET_CAMERA_SETTINGS" hasLocation="false" isDestination="false">
+			    <description>Set Open.HD camera settings</description>
+                <param index="1" label="brightness" minValue="0" maxValue="255" increment="1">Brightness level</param>
+		        <param index="2" label="contrast" minValue="0" maxValue="255" increment="1">Contrast level</param>
+                <param index="3" label="saturation" minValue="0" maxValue="255" increment="1">Saturation level</param>
+
+			</entry>
+		</enum>
+	</enums>
 </mavlink>
 
 
