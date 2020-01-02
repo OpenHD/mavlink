@@ -49,6 +49,15 @@
 			<field type="uint8_t" name="cpuload">cpuload</field>
 			<field type="uint8_t" name="temp">temp</field>
 		</message>
+		<message id="1240" name="OPENHD_GROUND_POWER">
+		    <wip />
+			<description>OPENHD_GROUND_POWER</description>
+			<field type="float" name="vin">vin</field>
+			<field type="float" name="vout">vout</field>
+			<field type="float" name="vbat">vbat</field>
+			<field type="float" name="iout">iout</field>
+            <field type="uint8_t" name="type" enum="MAV_BATTERY_TYPE">Type (chemistry) of the battery</field>
+		</message>
 	</messages>
 	<enums>
 		<enum name="OPENHD_CMD">
