@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <mavlink>
-	<include>common.xml</include>
+	<include>ardupilotmega.xml</include>
 	<messages>
 		<message id="1200" name="OPENHD_CAMERA_SETTINGS">
 			<description>OPENHD_CAMERA_SETTINGS</description>
