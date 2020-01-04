@@ -9,14 +9,14 @@
 			<field type="uint8_t" name="contrast">contrast</field>
 			<field type="uint8_t" name="saturation">saturation</field>
 			<field type="uint8_t" name="target_system">system id of the requesting system</field>
-      		<field type="uint8_t" name="target_component">component id of the requesting component</field>
+			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 		</message>
 		<message id="1210" name="OPENHD_GROUND_TELEMETRY">
 		    <wip />
 			<description>OPENHD_GROUND_TELEMETRY</description>
 			<field type="uint32_t" name="damaged_block_cnt">damaged_block_cnt</field>
 			<field type="uint32_t" name="lost_packet_cnt">lost_packet_cnt</field>
-      		<field type="uint32_t" name="received_packet_cnt">received_packet_cnt</field>
+			<field type="uint32_t" name="received_packet_cnt">received_packet_cnt</field>
 			<field type="uint32_t" name="kbitrate">kbitrate</field>
 			<field type="uint32_t" name="kbitrate_measured">kbitrate_measured</field>
 			<field type="uint32_t" name="kbitrate_set">kbitrate_set</field>
@@ -57,22 +57,21 @@
 			<field type="float" name="vout">vout</field>
 			<field type="float" name="vbat">vbat</field>
 			<field type="float" name="iout">iout</field>
-            <field type="uint8_t" name="type" enum="MAV_BATTERY_TYPE">Type (chemistry) of the battery</field>
+			<field type="uint8_t" name="type" enum="MAV_BATTERY_TYPE">Type (chemistry) of the battery</field>
 		</message>
 	</messages>
 	<enums>
 		<enum name="OPENHD_CMD">
-		    <description>Commands for OpenHD</description>
-		    <entry value="11200" name="OPENHD_CMD_GET_CAMERA_SETTINGS" hasLocation="false" isDestination="false">
-			    <description>Get Open.HD camera settings</description>
-                <param index="1">Reserved (all remaining params)</param>
-		    </entry>
+			<description>Commands for OpenHD</description>
+			<entry value="11200" name="OPENHD_CMD_GET_CAMERA_SETTINGS" hasLocation="false" isDestination="false">
+				<description>Get Open.HD camera settings</description>
+				<param index="1">Reserved (all remaining params)</param>
+			</entry>
 			<entry value="11201" name="OPENHD_CMD_SET_CAMERA_SETTINGS" hasLocation="false" isDestination="false">
-			    <description>Set Open.HD camera settings</description>
-                <param index="1" label="brightness" minValue="0" maxValue="255" increment="1">Brightness level</param>
-		        <param index="2" label="contrast" minValue="0" maxValue="255" increment="1">Contrast level</param>
-                <param index="3" label="saturation" minValue="0" maxValue="255" increment="1">Saturation level</param>
-
+				<description>Set Open.HD camera settings</description>
+				<param index="1" label="brightness" minValue="0" maxValue="255" increment="1">Brightness level</param>
+				<param index="2" label="contrast" minValue="0" maxValue="255" increment="1">Contrast level</param>
+				<param index="3" label="saturation" minValue="0" maxValue="255" increment="1">Saturation level</param>
 			</entry>
 		</enum>
 	</enums>
