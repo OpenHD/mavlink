@@ -59,6 +59,11 @@
 			<field type="float" name="iout">iout</field>
 			<field type="uint8_t" name="type" enum="MAV_BATTERY_TYPE">Type (chemistry) of the battery</field>
 		</message>
+		<message id="1250" name="OPENHD_GPIO_STATE">
+		    <wip />
+			<description>OPENHD_GPIO_STATE</description>
+			<field type="uint8_t" name="pins">pins</field>
+		</message>
 	</messages>
 	<enums>
 		<enum name="OPENHD_CMD">
@@ -72,6 +77,10 @@
 				<param index="1" label="brightness" minValue="0" maxValue="255" increment="1">Brightness level</param>
 				<param index="2" label="contrast" minValue="0" maxValue="255" increment="1">Contrast level</param>
 				<param index="3" label="saturation" minValue="0" maxValue="255" increment="1">Saturation level</param>
+			</entry>
+			<entry value="11300" name="OPENHD_CMD_SET_GPIOS" hasLocation="false" isDestination="false">
+				<description>Set Open.HD GPIO state</description>
+				<param index="1" label="pins" minValue="0" maxValue="255" increment="1">Pin bitpattern to set</param>
 			</entry>
 		</enum>
 	</enums>
