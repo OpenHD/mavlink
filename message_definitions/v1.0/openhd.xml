@@ -5,15 +5,17 @@
 	<messages>
 		<message id="1200" name="OPENHD_CAMERA_SETTINGS">
 			<description>OPENHD_CAMERA_SETTINGS</description>
+			<field type="uint8_t" name="target_system">system id of the requesting system</field>
+			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 			<field type="uint8_t" name="brightness">brightness</field>
 			<field type="uint8_t" name="contrast">contrast</field>
 			<field type="uint8_t" name="saturation">saturation</field>
-			<field type="uint8_t" name="target_system">system id of the requesting system</field>
-			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 		</message>
 		<message id="1210" name="OPENHD_GROUND_TELEMETRY">
 		    <wip />
 			<description>OPENHD_GROUND_TELEMETRY</description>
+			<field type="uint8_t" name="target_system">system id of the requesting system</field>
+			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 			<field type="uint32_t" name="damaged_block_cnt">damaged_block_cnt</field>
 			<field type="uint32_t" name="lost_packet_cnt">lost_packet_cnt</field>
 			<field type="uint32_t" name="received_packet_cnt">received_packet_cnt</field>
@@ -24,6 +26,8 @@
 		<message id="1211" name="OPENHD_AIR_TELEMETRY">
 		    <wip />
 			<description>OPENHD_AIR_TELEMETRY</description>
+			<field type="uint8_t" name="target_system">system id of the requesting system</field>
+			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 			<field type="uint32_t" name="damaged_block_cnt">damaged_block_cnt</field>
 			<field type="uint32_t" name="lost_packet_cnt">lost_packet_cnt</field>
 			<field type="uint32_t" name="skipped_packet_cnt">skipped_packet_cnt</field>
@@ -33,6 +37,8 @@
 		<message id="1212" name="OPENHD_WIFI_STATUS">
 		    <wip />
 			<description>OPENHD_WIFI_STATUS</description>
+			<field type="uint8_t" name="target_system">system id of the requesting system</field>
+			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 			<field type="uint8_t" name="wifi_adapter_cnt">wifi_adapter_cnt</field>
 			<field type="int8_t[4]" name="current_signal_dbm">current_signal_dbm</field>
 			<field type="uint8_t[4]" name="wifi_card_type">wifi_card_type</field>
@@ -41,18 +47,24 @@
 		<message id="1230" name="OPENHD_AIR_LOAD">
 		    <wip />
 			<description>OPENHD_AIR_LOAD</description>
+			<field type="uint8_t" name="target_system">system id of the requesting system</field>
+			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 			<field type="uint8_t" name="cpuload">cpuload</field>
 			<field type="uint8_t" name="temp">temp</field>
 		</message>
 		<message id="1231" name="OPENHD_GROUND_LOAD">
 		    <wip />
 			<description>OPENHD_GROUND_LOAD</description>
+			<field type="uint8_t" name="target_system">system id of the requesting system</field>
+			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 			<field type="uint8_t" name="cpuload">cpuload</field>
 			<field type="uint8_t" name="temp">temp</field>
 		</message>
 		<message id="1240" name="OPENHD_GROUND_POWER">
 		    <wip />
 			<description>OPENHD_GROUND_POWER</description>
+			<field type="uint8_t" name="target_system">system id of the requesting system</field>
+			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 			<field type="float" name="vin">vin</field>
 			<field type="float" name="vout">vout</field>
 			<field type="float" name="vbat">vbat</field>
@@ -62,6 +74,8 @@
 		<message id="1250" name="OPENHD_GPIO_STATE">
 		    <wip />
 			<description>OPENHD_GPIO_STATE</description>
+			<field type="uint8_t" name="target_system">system id of the requesting system</field>
+			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 			<field type="uint8_t" name="pins">pins</field>
 		</message>
 	</messages>
