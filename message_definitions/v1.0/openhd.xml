@@ -96,6 +96,9 @@
 				<description>Set Open.HD GPIO state</description>
 				<param index="1" label="pins" minValue="0" maxValue="255" increment="1">Pin bitpattern to set</param>
 			</entry>
+			<entry value="11301" name="OPENHD_CMD_GET_GPIOS" hasLocation="false" isDestination="false">
+				<description>Get Open.HD GPIO state</description>
+			</entry>
 			<entry value="11400" name="OPENHD_CMD_POWER_SHUTDOWN" hasLocation="false" isDestination="false">
 				<description>Safe shutdown target system</description>
 			</entry>
