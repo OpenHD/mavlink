@@ -78,6 +78,14 @@
 			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 			<field type="uint8_t" name="pins">pins</field>
 		</message>
+		<message id="1260" name="OPENHD_STATUS_MESSAGE">
+			<description>Status message for internal Open.HD components</description>
+			<field type="uint8_t" name="target_system">system id of the requesting system</field>
+			<field type="uint8_t" name="target_component">component id of the requesting component</field>
+			<field type="uint8_t" name="severity" enum="MAV_SEVERITY">severity level, relies on the definitions within RFC-5424.</field>
+			<field type="char[50]" name="text">status message, 49 character max length since it *must* be null-terminated</field>
+			<field type="uint64_t" name="timestamp">timestamp when message was originally generated</field>
+		</message>
 	</messages>
 	<enums>
 		<enum name="OPENHD_CMD">
@@ -104,6 +112,9 @@
 			</entry>
 			<entry value="11401" name="OPENHD_CMD_POWER_REBOOT" hasLocation="false" isDestination="false">
 				<description>Reboot target system</description>
+			</entry>
+			<entry value="11500" name="OPENHD_CMD_GET_STATUS_MESSAGES" hasLocation="false" isDestination="false">
+				<description>Get all status messages that have been stored by the target component</description>
 			</entry>
 		</enum>
 	</enums>
