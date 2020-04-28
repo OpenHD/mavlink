@@ -86,6 +86,12 @@
 			<field type="char[50]" name="text">status message, 49 character max length since it *must* be null-terminated</field>
 			<field type="uint64_t" name="timestamp">timestamp when message was originally generated</field>
 		</message>
+		<message id="1261" name="OPENHD_VERSION_MESSAGE">
+			<description>The current Open.HD version running on the system sending the message</description>
+			<field type="uint8_t" name="target_system">system id of the requesting system</field>
+			<field type="uint8_t" name="target_component">component id of the requesting component</field>
+			<field type="char[30]" name="version">version string, 29 character max length since it *must* be null-terminated</field>
+		</message>
 	</messages>
 	<enums>
 		<enum name="OPENHD_CMD">
@@ -115,6 +121,9 @@
 			</entry>
 			<entry value="11500" name="OPENHD_CMD_GET_STATUS_MESSAGES" hasLocation="false" isDestination="false">
 				<description>Get all status messages that have been stored by the target component</description>
+			</entry>
+			<entry value="11501" name="OPENHD_CMD_GET_VERSION" hasLocation="false" isDestination="false">
+				<description>Get the Open.HD version of the target system</description>
 			</entry>
 		</enum>
 	</enums>
