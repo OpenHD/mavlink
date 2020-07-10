@@ -86,6 +86,15 @@
 			<field type="int16_t" name="heading">heading</field>
 			<field type="int16_t" name="elevation">elevation</field>
 		</message>
+		<message id="1252" name="OPENHD_HEAD_ORIENTATION">
+		    <wip />
+			<description>Sent by QOpenHD when running on a phone in a VR headset or a VR system where QOpenHD can run directly</description>
+			<field type="uint8_t" name="target_system">system id of the requesting system</field>
+			<field type="uint8_t" name="target_component">component id of the requesting component</field>
+			<field type="int16_t" name="pitch">pitch</field>
+			<field type="int16_t" name="roll">roll</field>
+			<field type="int16_t" name="yaw">yaw</field>
+		</message>
 		<message id="1260" name="OPENHD_STATUS_MESSAGE">
 			<description>Status message for internal Open.HD components</description>
 			<field type="uint8_t" name="target_system">system id of the requesting system</field>
