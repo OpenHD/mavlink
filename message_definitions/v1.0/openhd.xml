@@ -71,6 +71,13 @@
 			<field type="float" name="iout">iout</field>
 			<field type="uint8_t" name="type" enum="MAV_BATTERY_TYPE">Type (chemistry) of the battery</field>
 		</message>
+		<message id="1241" name="OPENHD_TEMPERATURE_SENSOR">
+		    <wip />
+			<description>Sent by air/ground, not intended to replace standard messages from the flight controller. Supports multiple sensors, but users will have to label them in QOpenHD to tell them apart</description>
+			<field type="uint8_t" name="target_system">system id of the requesting system</field>
+			<field type="uint8_t" name="target_component">component id of the requesting component</field>
+			<field type="int8_t[8]" name="temperature" units="degC">temperature</field>
+		</message>
 		<message id="1250" name="OPENHD_GPIO_STATE">
 		    <wip />
 			<description>OPENHD_GPIO_STATE</description>
