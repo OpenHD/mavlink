@@ -78,6 +78,14 @@
 			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 			<field type="uint8_t" name="pins">pins</field>
 		</message>
+		<message id="1251" name="OPENHD_GROUND_ORIENTATION">
+		    <wip />
+			<description>Sent by the ground station to itself, for built-in antenna tracking systems</description>
+			<field type="uint8_t" name="target_system">system id of the requesting system</field>
+			<field type="uint8_t" name="target_component">component id of the requesting component</field>
+			<field type="int16_t" name="heading">heading</field>
+			<field type="int16_t" name="elevation">elevation</field>
+		</message>
 		<message id="1260" name="OPENHD_STATUS_MESSAGE">
 			<description>Status message for internal Open.HD components</description>
 			<field type="uint8_t" name="target_system">system id of the requesting system</field>
