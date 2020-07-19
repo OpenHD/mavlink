@@ -85,9 +85,9 @@
 			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 			<field type="uint8_t" name="pins">pins</field>
 		</message>
-		<message id="1251" name="OPENHD_GROUND_ORIENTATION">
+		<message id="1251" name="OPENHD_ORIENTATION">
 		    <wip />
-			<description>Sent by the ground station to itself, for built-in antenna tracking systems</description>
+			<description>Sent by the air/ground station to itself, for antenna tracking, video stabilization, etc</description>
 			<field type="uint8_t" name="target_system">system id of the requesting system</field>
 			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 			<field type="int16_t" name="heading">heading</field>
