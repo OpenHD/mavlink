@@ -52,9 +52,9 @@
 			<field type="uint8_t" name="cpuload">cpuload</field>
 			<field type="uint8_t" name="temp">temp</field>
 		</message>
-		<message id="1240" name="OPENHD_GROUND_POWER">
+		<message id="1240" name="OPENHD_POWER">
 		    <wip />
-			<description>OPENHD_GROUND_POWER</description>
+			<description>OPENHD_POWER</description>
 			<field type="uint8_t" name="target_system">system id of the requesting system</field>
 			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 			<field type="float" name="vin">vin</field>
