@@ -44,17 +44,9 @@
 			<field type="uint8_t[4]" name="wifi_card_type">wifi_card_type</field>
 			<field type="uint32_t[4]" name="received_packet_cnt">received_packet_cnt</field>
 		</message>
-		<message id="1230" name="OPENHD_AIR_LOAD">
+		<message id="1230" name="OPENHD_SYS_LOAD">
 		    <wip />
-			<description>OPENHD_AIR_LOAD</description>
-			<field type="uint8_t" name="target_system">system id of the requesting system</field>
-			<field type="uint8_t" name="target_component">component id of the requesting component</field>
-			<field type="uint8_t" name="cpuload">cpuload</field>
-			<field type="uint8_t" name="temp">temp</field>
-		</message>
-		<message id="1231" name="OPENHD_GROUND_LOAD">
-		    <wip />
-			<description>OPENHD_GROUND_LOAD</description>
+			<description>Used for ground/air system load</description>
 			<field type="uint8_t" name="target_system">system id of the requesting system</field>
 			<field type="uint8_t" name="target_component">component id of the requesting component</field>
 			<field type="uint8_t" name="cpuload">cpuload</field>
