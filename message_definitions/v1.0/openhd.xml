@@ -8,8 +8,9 @@
             <description>Used for ground/air system load,current,and more</description>
             <field type="uint8_t" name="target_system">system id of the requesting system</field>
             <field type="uint8_t" name="target_component">component id of the requesting component</field>
-            <field type="uint8_t" name="cpuload">cpuload</field>
-            <field type="uint8_t" name="temp">temp</field>
+            <field type="uint8_t" name="cpuload">cpuload in percent</field>
+            <field type="uint8_t" name="temperature">temperature in degree</field>
+            <field type="uint8_t" name="reserved">reserved</field>
         </message>
         <message id="1261" name="OPENHD_VERSION_MESSAGE">
             <description>The current Open.HD version running on the system sending the message</description>
