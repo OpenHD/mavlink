@@ -12,7 +12,7 @@
         </message>
         <message id="1211" name="OPENHD_WIFIBROADCAST_STATISTICS">
             <wip />
-            <description>Wifibroadcast statistics for a uniqe wb stream</description>
+            <description>Wifibroadcast statistics for a uniqe WB stream</description>
             <field type="uint8_t" name="radio_port">the unique stream ID this data refers to</field>
             <field type="uint8_t" name="count_p_all">count_p_all</field>
             <field type="uint8_t" name="count_p_bad">count_p_bad</field>
