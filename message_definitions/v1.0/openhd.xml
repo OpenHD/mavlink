@@ -3,13 +3,7 @@
     <include>common.xml</include>
     <include>ardupilotmega.xml</include>
     <messages>
-        <message id="1210" name="OPENHD_SYSTEM_TELEMETRY">
-            <wip />
-            <description>Used for ground/air system load,current,and more</description>
-            <field type="uint8_t" name="cpuload">cpuload in percent</field>
-            <field type="uint8_t" name="temperature">temperature in degree</field>
-            <field type="uint8_t" name="reserved">reserved</field>
-        </message>
+
         <message id="1211" name="OPENHD_WIFIBROADCAST_STATISTICS">
             <wip />
             <description>Wifibroadcast statistics for a uniqe WB stream</description>
