@@ -28,3 +28,5 @@ include/
 *.pyc
 include/mavlink/v1.0
 .idea
+cmake-build-debug
+cmake-build
