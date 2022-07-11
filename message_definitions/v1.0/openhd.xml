@@ -35,6 +35,8 @@
             <field type="uint32_t" name="count_blocks_lost">count_blocks_lost</field>
             <field type="uint32_t" name="count_blocks_recovered">count_blocks_recovered</field>
             <field type="uint32_t" name="count_fragments_recovered">count_fragments_recovered</field>
+            <field type="uint32_t" name="opt_count_packets_total">Optional, count packets total (variable FEC block size doesn't support this)</field>
+            <field type="uint32_t" name="opt_count_packets_lost">Optional, count packets lost (variable FEC block size doesn't support this)</field>
         </message>
 
         <message id="1214" name="OPENHD_STANDARD_LINK_RX_STATISTICS">
