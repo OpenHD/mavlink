@@ -27,6 +27,24 @@
             <field type="uint32_t" name="count_p_rx_err">count_p_rx_err</field>
         </message>
 
+        <message id="1213" name="OPENHD_FEC_LINK_STATISTICS">
+            <wip />
+            <description>Statstics for a unidrectional FEC link with variable block length</description>
+            <field type="uint8_t" name="link_index">link_index</field>
+            <field type="uint32_t" name="count_blocks_total">count_blocks_total</field>
+            <field type="uint32_t" name="count_blocks_lost">count_blocks_lost</field>
+            <field type="uint32_t" name="count_blocks_recovered">count_blocks_recovered</field>
+            <field type="uint32_t" name="count_fragments_recovered">count_fragments_recovered</field>
+        </message>
+
+        <message id="1214" name="OPENHD_STANDARD_LINK_STATISTICS">
+            <wip />
+            <description>Statstics for a unidrectional link that doesn't use FEC</description>
+            <field type="uint8_t" name="link_index">link_index</field>
+            <field type="uint32_t" name="count_p_received">All received (incoming) packets, not suported by all cards</field>
+            <field type="uint32_t" name="count_p_lost">All injected (outgoing) packets, not suported by all cards</field>
+        </message>
+
         <message id="1260" name="OPENHD_LOG_MESSAGE">
             <description>Log message for internal Open.HD components</description>
             <field type="uint8_t" name="severity" enum="MAV_SEVERITY">severity level, relies on the definitions within RFC-5424.</field>
