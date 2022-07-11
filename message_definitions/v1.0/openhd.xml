@@ -16,6 +16,16 @@
             <field type="uint8_t" name="count_p_lost">count_p_lost</field>
         </message>
 
+        <message id="1212" name="OPENHD_WIFI_CARD">
+            <wip />
+            <description>Statstics for a monitor mode wifi card</description>
+            <field type="int32_t" name="signal_millidBm">Current rx signal strength, in milli dBm (1000== 10.0dBm)</field>
+            <field type="uint32_t" name="count_p_received">All received (incoming) packets, not suported by all cards</field>
+            <field type="uint32_t" name="count_p_injected">All injected (outgoing) packets, not suported by all cards</field>
+            <field type="uint32_t" name="count_p_tx_err">count_p_tx_err</field>
+            <field type="uint32_t" name="count_p_rx_err">count_p_rx_err</field>
+        </message>
+
         <message id="1260" name="OPENHD_LOG_MESSAGE">
             <description>Log message for internal Open.HD components</description>
             <field type="uint8_t" name="severity" enum="MAV_SEVERITY">severity level, relies on the definitions within RFC-5424.</field>
