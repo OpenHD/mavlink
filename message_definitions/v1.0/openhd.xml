@@ -19,6 +19,7 @@
         <message id="1212" name="OPENHD_WIFI_CARD">
             <wip />
             <description>Statstics for a monitor mode wifi card</description>
+            <field type="uint8_t" name="card_index">A system / component might have more than one card for diversity</field>
             <field type="int32_t" name="signal_millidBm">Current rx signal strength, in milli dBm (1000== 10.0dBm)</field>
             <field type="uint32_t" name="count_p_received">All received (incoming) packets, not suported by all cards</field>
             <field type="uint32_t" name="count_p_injected">All injected (outgoing) packets, not suported by all cards</field>
