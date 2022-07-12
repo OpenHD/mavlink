@@ -47,6 +47,17 @@
             <field type="uint32_t" name="count_p_lost">All injected (outgoing) packets, not suported by all cards</field>
         </message>
 
+        <message id="1215" name="OPENHD_ONBOARD_COMPUTER_STATUS_EXTENSION">
+            <wip />
+            <description>This is for values that cannot be already done with the mavlink onboard computer status message</description>
+            <field type="uint16_t" name="cpu_core_voltage_milliV">cpu_core_voltage_milliV</field>
+            <field type="uint8_t" name="over_current">bool over_current</field>
+            <field type="uint16_t" name="reserved1">reserved1</field>
+            <field type="uint16_t" name="reserved2">reserved1</field>
+            <field type="uint16_t" name="reserved3">reserved1</field>
+            <field type="uint16_t" name="reserved4">reserved1</field>
+        </message>
+
         <message id="1260" name="OPENHD_LOG_MESSAGE">
             <description>Log message for internal Open.HD components</description>
             <field type="uint8_t" name="severity" enum="MAV_SEVERITY">severity level, relies on the definitions within RFC-5424.</field>
