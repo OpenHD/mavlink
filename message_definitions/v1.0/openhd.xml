@@ -47,7 +47,16 @@
             <field type="uint32_t" name="count_p_lost">All injected (outgoing) packets, not suported by all cards</field>
         </message>
 
-        <message id="1215" name="OPENHD_ONBOARD_COMPUTER_STATUS_EXTENSION">
+        <message id="1215" name="OPENHD_STATS_TOTAL_ALL_STREAMS">
+            <wip />
+            <description>Data from all RX and all TX instances on either ground or air,accumulated.</description>
+            <field type="uint64_t" name="count_wifi_packets_received">current count of all received Wi-Fi packets</field>
+            <field type="uint64_t" name="count_bytes_received">current count of all received bytes, does not include IEE802 header or similar, but does include FEC overhead</field>
+            <field type="uint64_t" name="count_wifi_packets_injected">current count of all injected Wi-Fi packets</field>
+            <field type="uint64_t" name="count_bytes_injected">current count of all outgoing bytes, does not include IEE802 header or similar, but does include FEC overhead</field>
+        </message>
+
+        <message id="1216" name="OPENHD_ONBOARD_COMPUTER_STATUS_EXTENSION">
             <wip />
             <description>This is for values that cannot be already done with the mavlink onboard computer status message</description>
             <field type="uint16_t" name="cpu_core_voltage_milliV">cpu_core_voltage_milliV</field>
