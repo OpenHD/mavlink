@@ -4,57 +4,44 @@
     <include>ardupilotmega.xml</include>
     <messages>
 
-        <message id="1211" name="OPENHD_WIFIBROADCAST_STATISTICS">
-            <wip />
-            <description>Wifibroadcast statistics for a uniqe WB stream</description>
-            <field type="uint8_t" name="radio_port">the unique stream ID this data refers to</field>
-            <field type="uint8_t" name="count_p_all">count_p_all</field>
-            <field type="uint8_t" name="count_p_bad">count_p_bad</field>
-            <field type="uint8_t" name="count_p_dec_err">count_p_dec_err</field>
-            <field type="uint8_t" name="count_p_dec_ok">count_p_dec_ok</field>
-            <field type="uint8_t" name="count_p_fec_recovered">count_p_fec_recovered</field>
-            <field type="uint8_t" name="count_p_lost">count_p_lost</field>
-        </message>
 
-        <message id="1212" name="OPENHD_WIFI_CARD">
+        <message id="1211" name="OPENHD_WIFIBROADCAST_WIFI_CARD">
             <wip />
             <description>Statstics for a monitor mode wifi card</description>
             <field type="uint8_t" name="card_index">A system / component might have more than one card for diversity</field>
-            <field type="int32_t" name="signal_millidBm">Current rx signal strength, in milli dBm (1000== 10.0dBm)</field>
-            <field type="uint32_t" name="count_p_received">All received (incoming) packets, not suported by all cards</field>
-            <field type="uint32_t" name="count_p_injected">All injected (outgoing) packets, not suported by all cards</field>
-            <field type="uint32_t" name="count_p_tx_err">count_p_tx_err</field>
-            <field type="uint32_t" name="count_p_rx_err">count_p_rx_err</field>
+            <field type="int8_t" name="rx_rssi">rx_rssi</field>
+            <field type="uint64_t" name="count_p_received">All received (incoming) packets, not suported by all cards</field>
+            <field type="uint64_t" name="count_p_injected">All injected (outgoing) packets, not suported by all cards</field>
+            <field type="uint64_t" name="dummy0">dummy0</field>
+            <field type="uint64_t" name="dummy1">dummy1</field>
         </message>
 
-        <message id="1213" name="OPENHD_FEC_LINK_RX_STATISTICS">
-            <wip />
-            <description>Statstics for a unidrectional FEC link with variable block length</description>
-            <field type="uint8_t" name="link_index">link_index</field>
-            <field type="uint32_t" name="count_blocks_total">count_blocks_total</field>
-            <field type="uint32_t" name="count_blocks_lost">count_blocks_lost</field>
-            <field type="uint32_t" name="count_blocks_recovered">count_blocks_recovered</field>
-            <field type="uint32_t" name="count_fragments_recovered">count_fragments_recovered</field>
-            <field type="uint32_t" name="opt_count_packets_total">Optional, count packets total (variable FEC block size doesn't support this)</field>
-            <field type="uint32_t" name="opt_count_packets_lost">Optional, count packets lost (variable FEC block size doesn't support this)</field>
-        </message>
-
-        <message id="1214" name="OPENHD_STANDARD_LINK_RX_STATISTICS">
-            <wip />
-            <description>Statstics for a unidrectional link that doesn't use FEC</description>
-            <field type="uint8_t" name="link_index">link_index</field>
-            <field type="uint32_t" name="count_p_received">All received (incoming) packets, not suported by all cards</field>
-            <field type="uint32_t" name="count_p_lost">All injected (outgoing) packets, not suported by all cards</field>
-        </message>
-
-        <message id="1215" name="OPENHD_STATS_TOTAL_ALL_STREAMS">
+        <message id="1212" name="OPENHD_STATS_TOTAL_ALL_WIFIBROADCAST_STREAMS">
             <wip />
             <description>Data from all RX and all TX instances on either ground or air,accumulated.</description>
             <field type="uint64_t" name="count_wifi_packets_received">current count of all received Wi-Fi packets</field>
             <field type="uint64_t" name="count_bytes_received">current count of all received bytes, does not include IEE802 header or similar, but does include FEC overhead</field>
             <field type="uint64_t" name="count_wifi_packets_injected">current count of all injected Wi-Fi packets</field>
             <field type="uint64_t" name="count_bytes_injected">current count of all outgoing bytes, does not include IEE802 header or similar, but does include FEC overhead</field>
+            <field type="uint64_t" name="count_telemetry_tx_injections_error_hint">count_telemetry_tx_injections_error_hint</field>
+            <field type="uint64_t" name="count_video_tx_injections_error_hint">count_video_tx_injections_error_hint</field>
+            <field type="uint64_t" name="curr_video0_bps">curr_video0_bps</field>
+            <field type="uint64_t" name="curr_video1_bps">curr_video1_bps</field>
+            <field type="uint64_t" name="curr_telemetry_rx_bps">curr_telemetry_rx_bps</field>
+            <field type="uint64_t" name="curr_telemetry_tx_bps">curr_telemetry_tx_bps</field>
         </message>
+
+        <message id="1213" name="OPENHD_FEC_LINK_RX_STATISTICS">
+            <wip />
+            <description>Statstics for a unidrectional FEC link with variable block length</description>
+            <field type="uint8_t" name="link_index">link_index</field>
+            <field type="uint64_t" name="count_blocks_total">count_blocks_total</field>
+            <field type="uint64_t" name="count_blocks_lost">count_blocks_lost</field>
+            <field type="uint64_t" name="count_blocks_recovered">count_blocks_recovered</field>
+            <field type="uint64_t" name="count_fragments_recovered">count_fragments_recovered</field>
+            <field type="uint64_t" name="count_bytes_forwarded">count_bytes_forwarded</field>
+        </message>
+
 
         <message id="1216" name="OPENHD_ONBOARD_COMPUTER_STATUS_EXTENSION">
             <wip />
