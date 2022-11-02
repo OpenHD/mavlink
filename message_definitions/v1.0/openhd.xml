@@ -73,6 +73,7 @@
         <message id="1261" name="OPENHD_VERSION_MESSAGE">
             <description>The current Open.HD version running on the system sending the message</description>
             <field type="char[30]" name="version">version string, 29 character max length since it *must* be null-terminated</field>
+            <field type="char[30]" name="commit_hash">commit_hash, 29 character max length since it *must* be null-terminated</field>
         </message>
 
     </messages>
