@@ -27,8 +27,15 @@
             <field type="uint64_t" name="count_video_tx_injections_error_hint">count_video_tx_injections_error_hint</field>
             <field type="uint64_t" name="curr_video0_bps">curr_video0_bps</field>
             <field type="uint64_t" name="curr_video1_bps">curr_video1_bps</field>
+            <field type="uint64_t" name="curr_video0_tx_pps">curr_video0_tx_pps</field>
+            <field type="uint64_t" name="curr_video1_tx_pps">curr_video1_tx_pps</field>
+            <field type="uint64_t" name="curr_telemetry_tx_pps">curr_telemetry_tx_pps</field>
             <field type="uint64_t" name="curr_telemetry_rx_bps">curr_telemetry_rx_bps</field>
             <field type="uint64_t" name="curr_telemetry_tx_bps">curr_telemetry_tx_bps</field>
+            <field type="uint64_t" name="unused_0">unused_0</field>
+            <field type="uint64_t" name="unused_1">unused_1</field>
+            <field type="uint64_t" name="unused_2">unused_2</field>
+            <field type="uint64_t" name="unused_3">unused_3</field>
         </message>
 
         <message id="1213" name="OPENHD_FEC_LINK_RX_STATISTICS">
@@ -40,6 +47,8 @@
             <field type="uint64_t" name="count_blocks_recovered">count_blocks_recovered</field>
             <field type="uint64_t" name="count_fragments_recovered">count_fragments_recovered</field>
             <field type="uint64_t" name="count_bytes_forwarded">count_bytes_forwarded</field>
+            <field type="uint64_t" name="unused_0">unused_0</field>
+            <field type="uint64_t" name="unused_1">unused_1</field>
         </message>
 
 
