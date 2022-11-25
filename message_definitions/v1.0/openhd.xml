@@ -5,7 +5,7 @@
     <messages>
 
 
-        <message id="1211" name="OPENHD_WIFIBROADCAST_WIFI_CARD">
+        <message id="1211" name="OPENHD_STATS_MONITOR_MODE_WIFI_CARD">
             <wip />
             <description>Statstics for a monitor mode wifi card</description>
             <field type="uint8_t" name="card_index">A system / component might have more than one card for diversity</field>
@@ -16,62 +16,63 @@
             <field type="uint64_t" name="dummy1">dummy1</field>
         </message>
 
-        <message id="1212" name="OPENHD_STATS_TOTAL_ALL_WIFIBROADCAST_STREAMS">
+        <message id="1212" name="OPENHD_STATS_MONITOR_MODE_WIFI_LINK">
             <wip />
-            <description>Data from all RX and all TX instances on either ground or air,accumulated.</description>
-            <field type="uint64_t" name="count_wifi_packets_received">current count of all received Wi-Fi packets</field>
-            <field type="uint64_t" name="count_bytes_received">current count of all received bytes, does not include IEE802 header or similar, but does include FEC overhead</field>
-            <field type="uint64_t" name="count_wifi_packets_injected">current count of all injected Wi-Fi packets</field>
-            <field type="uint64_t" name="count_bytes_injected">current count of all outgoing bytes, does not include IEE802 header or similar, but does include FEC overhead</field>
-            <field type="uint64_t" name="count_telemetry_tx_injections_error_hint">count_telemetry_tx_injections_error_hint</field>
-            <field type="uint64_t" name="count_video_tx_injections_error_hint">count_video_tx_injections_error_hint</field>
-            <field type="uint64_t" name="curr_video0_bps">curr_video0_bps</field>
-            <field type="uint64_t" name="curr_video1_bps">curr_video1_bps</field>
-            <field type="uint64_t" name="curr_video0_tx_pps">curr_video0_tx_pps</field>
-            <field type="uint64_t" name="curr_video1_tx_pps">curr_video1_tx_pps</field>
-            <field type="uint64_t" name="curr_telemetry_tx_pps">curr_telemetry_tx_pps</field>
-            <field type="uint64_t" name="curr_telemetry_rx_bps">curr_telemetry_rx_bps</field>
-            <field type="uint64_t" name="curr_telemetry_tx_bps">curr_telemetry_tx_bps</field>
-            <field type="uint64_t" name="unused_0">unused_0</field>
-            <field type="uint64_t" name="unused_1">unused_1</field>
-            <field type="uint64_t" name="unused_2">unused_2</field>
-            <field type="uint64_t" name="unused_3">unused_3</field>
+            <description>todo</description>
+            <field type="uint64_t" name="curr_tx_pps">tx packets per second</field>
+            <field type="uint64_t" name="curr_rx_pps">rx packets per second</field>
+            <field type="uint64_t" name="curr_tx_bps">tx bits per second</field>
+            <field type="uint64_t" name="curr_rx_bps">rx bits per second</field>
+            <field type="int32_t" name="unused0">unused0</field>
+            <field type="int32_t" name="unused1">unused1</field>
+            <field type="int32_t" name="unused2">unused2</field>
+            <field type="int32_t" name="unused3">unused3</field>
         </message>
 
-        <message id="1213" name="OPENHD_FEC_LINK_RX_STATISTICS">
+        <message id="1213" name="OPENHD_STATS_TELEMETRY">
             <wip />
-            <description>Statstics for a unidrectional FEC link with variable block length</description>
-            <field type="uint8_t" name="link_index">link_index</field>
-            <field type="uint64_t" name="count_blocks_total">count_blocks_total</field>
-            <field type="uint64_t" name="count_blocks_lost">count_blocks_lost</field>
-            <field type="uint64_t" name="count_blocks_recovered">count_blocks_recovered</field>
-            <field type="uint64_t" name="count_fragments_recovered">count_fragments_recovered</field>
-            <field type="uint64_t" name="count_bytes_forwarded">count_bytes_forwarded</field>
+            <description>Telemetry is always bidirectional, so rx / tx stats are available from both air and ground</description>
+            <field type="uint64_t" name="curr_tx_pps">tx packets per second</field>
+            <field type="uint64_t" name="curr_rx_pps">rx packets per second</field>
+            <field type="uint64_t" name="curr_tx_bps">tx bits per second</field>
+            <field type="uint64_t" name="curr_rx_bps">rx bits per second</field>
+            <field type="uint64_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss_perc</field>
             <field type="uint64_t" name="unused_0">unused_0</field>
             <field type="uint64_t" name="unused_1">unused_1</field>
         </message>
 
-        <message id="1214" name="OPENHD_FEC_ENCODE_PERFORMANCE_INFO">
+        <message id="1214" name="OPENHD_STATS_WB_VIDEO_AIR">
             <wip />
-            <description>Important FEC encode performance metrics</description>
+            <description>Generated on air,one per primary/secondary video</description>
             <field type="uint8_t" name="link_index">link_index</field>
-            <field type="int32_t" name="encode_time_avg_ms">encode_time_avg_ms</field>
-            <field type="int32_t" name="encode_time_min_ms">encode_time_min_ms</field>
-            <field type="int32_t" name="encode_time_max_ms">encode_time_min_ms</field>
-            <field type="int32_t" name="block_size_avg">block_size_avg</field>
-            <field type="int32_t" name="block_size_min">block_size_min</field>
-            <field type="int32_t" name="block_size_max">block_size_max</field>
+            <field type="uint8_t" name="curr_video_codec">curr_video_codec</field>
+            <field type="int32_t" name="curr_recommended_bitrate">curr_recommended_bitrate</field>
+            <field type="int32_t" name="curr_measured_encoder_bitrate">curr_measured_encoder_bitrate</field>
+            <field type="int32_t" name="curr_injected_bitrate">curr_injected_bitrate (+FEC overhead)</field>
+            <field type="int32_t" name="curr_injected_pps">curr_injected_pps</field>
+            <field type="int32_t" name="curr_dropped_packets">curr_dropped_packets</field>
+            <field type="int32_t" name="curr_fec_encode_time_avg_ms">curr_fec_encode_time_avg_ms</field>
+            <field type="int32_t" name="curr_fec_encode_time_min_ms">curr_fec_encode_time_min_ms</field>
+            <field type="int32_t" name="curr_fec_encode_time_max_ms">curr_fec_encode_time_max_ms</field>
+            <field type="int16_t" name="curr_fec_block_size_avg">curr_fec_block_size_avg</field>
+            <field type="int16_t" name="curr_fec_block_size_min">curr_fec_block_size_min</field>
+            <field type="int16_t" name="curr_fec_block_size_max">curr_fec_block_size_max</field>
             <field type="int32_t" name="unused0">unused0</field>
             <field type="int32_t" name="unused1">unused1</field>
         </message>
 
-        <message id="1215" name="OPENHD_FEC_DECODE_PERFORMANCE_INFO">
+        <message id="1215" name="OPENHD_STATS_WB_VIDEO_GROUND">
             <wip />
-            <description>Important FEC encode performance metrics</description>
+            <description>Generated on ground,one per primary/secondary video</description>
             <field type="uint8_t" name="link_index">link_index</field>
-            <field type="int32_t" name="decode_time_avg_ms">decode_time_avg_ms</field>
-            <field type="int32_t" name="decode_time_min_ms">decode_time_min_ms</field>
-            <field type="int32_t" name="decode_time_max_ms">decode_time_min_ms</field>
+            <field type="int32_t" name="curr_incoming_bitrate">todo</field>
+            <field type="uint64_t" name="count_blocks_total">count_blocks_total</field>
+            <field type="uint64_t" name="count_blocks_lost">count_blocks_lost</field>
+            <field type="uint64_t" name="count_blocks_recovered">count_blocks_recovered</field>
+            <field type="uint64_t" name="count_fragments_recovered">count_fragments_recovered</field>
+            <field type="int32_t" name="curr_fec_decode_time_avg_ms">todo</field>
+            <field type="int32_t" name="curr_fec_decode_time_min_ms">todo</field>
+            <field type="int32_t" name="curr_fec_decode_time_max_ms">todo</field>
             <field type="int32_t" name="unused0">unused0</field>
             <field type="int32_t" name="unused1">unused1</field>
         </message>
@@ -90,7 +91,8 @@
         <message id="1260" name="OPENHD_LOG_MESSAGE">
             <description>Log message for internal Open.HD components</description>
             <field type="uint8_t" name="severity" enum="MAV_SEVERITY">severity level, relies on the definitions within RFC-5424.</field>
-            <field type="char[50]" name="text">status message, 49 character max length since it *must* be null-terminated</field>
+            <field type="char[10]" name="tag">log tag,must not be null-terminated</field>
+            <field type="char[50]" name="message">log message,must not be null-terminated</field>
             <field type="uint64_t" name="timestamp">timestamp when message was originally generated</field>
         </message>
 
