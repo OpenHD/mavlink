@@ -23,6 +23,7 @@
             <field type="uint64_t" name="curr_rx_pps">rx packets per second</field>
             <field type="uint64_t" name="curr_tx_bps">tx bits per second</field>
             <field type="uint64_t" name="curr_rx_bps">rx bits per second</field>
+            <field type="uint64_t" name="curr_rx_packet_loss">curr_rx_packet_loss</field>
             <field type="int32_t" name="unused0">unused0</field>
             <field type="int32_t" name="unused1">unused1</field>
             <field type="int32_t" name="unused2">unused2</field>
