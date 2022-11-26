@@ -52,12 +52,12 @@
             <field type="int32_t" name="curr_injected_bitrate">curr_injected_bitrate (+FEC overhead)</field>
             <field type="int32_t" name="curr_injected_pps">curr_injected_pps</field>
             <field type="int32_t" name="curr_dropped_packets">curr_dropped_packets</field>
-            <field type="int32_t" name="curr_fec_encode_time_avg_ms">curr_fec_encode_time_avg_ms</field>
-            <field type="int32_t" name="curr_fec_encode_time_min_ms">curr_fec_encode_time_min_ms</field>
-            <field type="int32_t" name="curr_fec_encode_time_max_ms">curr_fec_encode_time_max_ms</field>
-            <field type="int16_t" name="curr_fec_block_size_avg">curr_fec_block_size_avg</field>
-            <field type="int16_t" name="curr_fec_block_size_min">curr_fec_block_size_min</field>
-            <field type="int16_t" name="curr_fec_block_size_max">curr_fec_block_size_max</field>
+            <field type="uint32_t" name="curr_fec_encode_time_avg_us">curr_fec_encode_time_avg_us</field>
+            <field type="uint32_t" name="curr_fec_encode_time_min_us">curr_fec_encode_time_min_us</field>
+            <field type="uint32_t" name="curr_fec_encode_time_max_us">curr_fec_encode_time_max_us</field>
+            <field type="uint16_t" name="curr_fec_block_size_avg">curr_fec_block_size_avg</field>
+            <field type="uint16_t" name="curr_fec_block_size_min">curr_fec_block_size_min</field>
+            <field type="uint16_t" name="curr_fec_block_size_max">curr_fec_block_size_max</field>
             <field type="int32_t" name="unused0">unused0</field>
             <field type="int32_t" name="unused1">unused1</field>
         </message>
@@ -71,9 +71,9 @@
             <field type="uint64_t" name="count_blocks_lost">count_blocks_lost</field>
             <field type="uint64_t" name="count_blocks_recovered">count_blocks_recovered</field>
             <field type="uint64_t" name="count_fragments_recovered">count_fragments_recovered</field>
-            <field type="int32_t" name="curr_fec_decode_time_avg_ms">todo</field>
-            <field type="int32_t" name="curr_fec_decode_time_min_ms">todo</field>
-            <field type="int32_t" name="curr_fec_decode_time_max_ms">todo</field>
+            <field type="uint32_t" name="curr_fec_decode_time_avg_us">todo</field>
+            <field type="uint32_t" name="curr_fec_decode_time_min_us">todo</field>
+            <field type="uint32_t" name="curr_fec_decode_time_max_us">todo</field>
             <field type="int32_t" name="unused0">unused0</field>
             <field type="int32_t" name="unused1">unused1</field>
         </message>
