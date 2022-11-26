@@ -19,25 +19,27 @@
         <message id="1212" name="OPENHD_STATS_MONITOR_MODE_WIFI_LINK">
             <wip />
             <description>todo</description>
-            <field type="uint64_t" name="curr_tx_pps">tx packets per second</field>
-            <field type="uint64_t" name="curr_rx_pps">rx packets per second</field>
-            <field type="uint64_t" name="curr_tx_bps">tx bits per second</field>
-            <field type="uint64_t" name="curr_rx_bps">rx bits per second</field>
-            <field type="uint64_t" name="curr_rx_packet_loss">curr_rx_packet_loss</field>
+            <field type="int32_t" name="curr_tx_pps">tx packets per second</field>
+            <field type="int32_t" name="curr_rx_pps">rx packets per second</field>
+            <field type="int32_t" name="curr_tx_bps">tx bits per second</field>
+            <field type="int32_t" name="curr_rx_bps">rx bits per second</field>
+            <field type="int16_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss</field>
+            <field type="uint64_t" name="count_tx_inj_error_hint">count_tx_inj_error_hint</field>
+            <field type="uint64_t" name="count_tx_dropped_packets">count_tx_dropped_packets</field>
             <field type="int32_t" name="unused0">unused0</field>
             <field type="int32_t" name="unused1">unused1</field>
-            <field type="int32_t" name="unused2">unused2</field>
-            <field type="int32_t" name="unused3">unused3</field>
+            <field type="uint64_t" name="unused2">unused2</field>
+            <field type="uint64_t" name="unused3">unused3</field>
         </message>
 
         <message id="1213" name="OPENHD_STATS_TELEMETRY">
             <wip />
             <description>Telemetry is always bidirectional, so rx / tx stats are available from both air and ground</description>
-            <field type="uint64_t" name="curr_tx_pps">tx packets per second</field>
-            <field type="uint64_t" name="curr_rx_pps">rx packets per second</field>
-            <field type="uint64_t" name="curr_tx_bps">tx bits per second</field>
-            <field type="uint64_t" name="curr_rx_bps">rx bits per second</field>
-            <field type="uint64_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss_perc</field>
+            <field type="int32_t" name="curr_tx_pps">tx packets per second</field>
+            <field type="int32_t" name="curr_rx_pps">rx packets per second</field>
+            <field type="int32_t" name="curr_tx_bps">tx bits per second</field>
+            <field type="int32_t" name="curr_rx_bps">rx bits per second</field>
+            <field type="int16_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss_perc</field>
             <field type="uint64_t" name="unused_0">unused_0</field>
             <field type="uint64_t" name="unused_1">unused_1</field>
         </message>
