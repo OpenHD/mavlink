@@ -2,8 +2,24 @@
 <mavlink>
     <include>common.xml</include>
     <include>ardupilotmega.xml</include>
-    <messages>
 
+    <enums>
+        <enum name="OPENHD_CMD">
+            <description>Commands for OpenHD</description>
+            <entry value="11200" name="OPENHD_CMD_INITIATE_CHANNEL_SEARCH" hasLocation="false" isDestination="false">
+                <description>Initiate channel search, aka find the channel the air unit is currently running on</description>
+                <param index="1" label="Instance" minValue="0" increment="1">frequency channels to scan, 0=2.4G and 5.8G, 1: 2.4G only, 2: 5G only</param>
+                <param index="5">Empty</param>
+                <param index="5">Empty</param>
+                <param index="6">Empty</param>
+                <param index="7">Empty</param>
+            </entry>
+
+        </enum>
+    </enums>
+
+
+    <messages>
 
         <message id="1211" name="OPENHD_STATS_MONITOR_MODE_WIFI_CARD">
             <wip />
@@ -106,20 +122,5 @@
         </message>
 
     </messages>
-
-    <enums>
-        <enum name="OPENHD_CMD">
-            <description>Commands for OpenHD</description>
-            <entry value="11200" name="OPENHD_CMD_INITIATE_CHANNEL_SEARCH" hasLocation="false" isDestination="false">
-                <description>Initiate channel search, aka find the channel the air unit is currently running on</description>
-                <param index="1" label="Instance" minValue="0" increment="1">frequency channels to scan, 0=2.4G and 5.8G, 1: 2.4G only, 2: 5G only</param>
-                <param index="5">Empty</param>
-                <param index="5">Empty</param>
-                <param index="6">Empty</param>
-                <param index="7">Empty</param>
-            </entry>
-
-        </enum>
-    </enums>
 
 </mavlink>
