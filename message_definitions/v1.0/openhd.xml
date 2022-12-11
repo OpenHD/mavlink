@@ -15,6 +15,22 @@
                 <param index="7">Empty</param>
             </entry>
 
+            <entry value="11201" name="OPENHD_CMD_DUMMY1" hasLocation="false" isDestination="false">
+                <description>dummy1</description>
+                <param index="5">Empty</param>
+                <param index="5">Empty</param>
+                <param index="6">Empty</param>
+                <param index="7">Empty</param>
+            </entry>
+
+            <entry value="11202" name="OPENHD_CMD_DUMMY2" hasLocation="false" isDestination="false">
+                <description>dummy2</description>
+                <param index="5">Empty</param>
+                <param index="5">Empty</param>
+                <param index="6">Empty</param>
+                <param index="7">Empty</param>
+            </entry>
+
         </enum>
     </enums>
 
