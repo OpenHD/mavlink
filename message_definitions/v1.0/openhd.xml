@@ -106,4 +106,16 @@
         </message>
 
     </messages>
+
+    <enums>
+        <enum name="OPENHD_CMD">
+            <description>Commands for OpenHD</description>
+            <entry value="11200" name="OPENHD_CMD_INITIATE_CHANNEL_SEARCH" hasLocation="false" isDestination="false">
+                <description>Initiate channel search, aka find the channel the air unit is currently running on</description>
+                <param index="1">Reserved (all remaining params)</param>
+            </entry>
+
+        </enum>
+    </enums>
+
 </mavlink>
