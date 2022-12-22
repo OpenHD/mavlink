@@ -12,4 +12,4 @@ Key Links:
 * [Documentation/Website](https://mavlink.io/en/) (mavlink.io/en/)
 * [Discussion/Support](https://mavlink.io/en/#support) (Slack)
 * [Contributing](https://mavlink.io/en/contributing/contributing.html)
-* [License](https://mavlink.io/en/#license)
+* [License](https://mavlink.io/en/#license) 
