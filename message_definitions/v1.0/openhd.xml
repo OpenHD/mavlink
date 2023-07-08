@@ -37,7 +37,25 @@
 
     <messages>
 
-        <message id="1211" name="OPENHD_STATS_MONITOR_MODE_WIFI_CARD">
+        <message id="1211" name="OPENHD_STATS_MONITOR_MODE_WIFI_LINK">
+            <wip />
+            <description>Statistics for a monitor mode TX and RX link</description>
+            <field type="int16_t" name="curr_tx_pps">tx packets per second</field>
+            <field type="int16_t" name="curr_rx_pps">rx packets per second</field>
+            <field type="int32_t" name="curr_tx_bps">tx bits per second</field>
+            <field type="int32_t" name="curr_rx_bps">rx bits per second</field>
+            <field type="int16_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss</field>
+            <field type="uint32_t" name="count_tx_inj_error_hint">count_tx_inj_error_hint</field>
+            <field type="uint32_t" name="count_tx_dropped_packets">count_tx_dropped_packets</field>
+            <field type="uint8_t" name="curr_tx_card_idx">curr_tx_card_idx</field>
+            <field type="uint8_t" name="curr_tx_mcs_index">curr tx mcs index used when injecting packets</field>
+            <field type="int8_t" name="dummy0">for future use</field>
+            <field type="int16_t" name="dummy1">for future use</field>
+            <field type="int32_t" name="dummy2">for future use</field>
+            <field type="uint32_t" name="dummy3">for future use</field>
+        </message>
+
+        <message id="1212" name="OPENHD_STATS_MONITOR_MODE_WIFI_CARD">
             <wip />
             <description>Statstics for a monitor mode wifi card</description>
             <field type="uint8_t" name="card_index">A system / component might have more than one card for diversity</field>
@@ -48,24 +66,6 @@
             <field type="uint32_t" name="count_p_received">All received (incoming) packets</field>
             <field type="uint32_t" name="count_p_injected">All injected (outgoing) packets</field>
             <field type="int8_t" name="curr_rx_packet_loss_perc">rx packet loss (for this card)</field>
-            <field type="int8_t" name="dummy0">for future use</field>
-            <field type="int16_t" name="dummy1">for future use</field>
-            <field type="int32_t" name="dummy2">for future use</field>
-            <field type="uint32_t" name="dummy3">for future use</field>
-        </message>
-
-        <message id="1212" name="OPENHD_STATS_MONITOR_MODE_WIFI_LINK">
-            <wip />
-            <description>todo</description>
-            <field type="int16_t" name="curr_tx_pps">tx packets per second</field>
-            <field type="int16_t" name="curr_rx_pps">rx packets per second</field>
-            <field type="int32_t" name="curr_tx_bps">tx bits per second</field>
-            <field type="int32_t" name="curr_rx_bps">rx bits per second</field>
-            <field type="int16_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss</field>
-            <field type="uint32_t" name="count_tx_inj_error_hint">count_tx_inj_error_hint</field>
-            <field type="uint32_t" name="count_tx_dropped_packets">count_tx_dropped_packets</field>
-            <field type="uint8_t" name="curr_tx_card_idx">curr_tx_card_idx</field>
-            <field type="uint8_t" name="curr_tx_mcs_index">curr tx mcs index used when injecting packets</field>
             <field type="int8_t" name="dummy0">for future use</field>
             <field type="int16_t" name="dummy1">for future use</field>
             <field type="int32_t" name="dummy2">for future use</field>
@@ -96,12 +96,6 @@
             <field type="int32_t" name="curr_injected_bitrate">curr_injected_bitrate (+FEC overhead)</field>
             <field type="int32_t" name="curr_injected_pps">curr_injected_pps</field>
             <field type="int32_t" name="curr_dropped_packets">curr_dropped_packets</field>
-            <field type="uint32_t" name="curr_fec_encode_time_avg_us">curr_fec_encode_time_avg_us</field>
-            <field type="uint32_t" name="curr_fec_encode_time_min_us">curr_fec_encode_time_min_us</field>
-            <field type="uint32_t" name="curr_fec_encode_time_max_us">curr_fec_encode_time_max_us</field>
-            <field type="uint16_t" name="curr_fec_block_size_avg">curr_fec_block_size_avg</field>
-            <field type="uint16_t" name="curr_fec_block_size_min">curr_fec_block_size_min</field>
-            <field type="uint16_t" name="curr_fec_block_size_max">curr_fec_block_size_max</field>
             <field type="int16_t" name="curr_fec_percentage">curr_fec_percentage</field>
             <field type="int16_t" name="curr_keyframe_interval">curr_keyframe_interval</field>
             <field type="uint8_t" name="recording_active">recording_active</field>
@@ -111,7 +105,23 @@
             <field type="uint32_t" name="dummy3">for future use</field>
         </message>
 
-        <message id="1215" name="OPENHD_STATS_WB_VIDEO_GROUND">
+        <message id="1215" name="OPENHD_STATS_WB_VIDEO_AIR_FEC_PERFORMANCE">
+            <wip />
+            <description>FEC encode performance stats, only for developers</description>
+            <field type="uint8_t" name="link_index">link_index</field>
+            <field type="uint32_t" name="curr_fec_encode_time_avg_us">curr_fec_encode_time_avg_us</field>
+            <field type="uint32_t" name="curr_fec_encode_time_min_us">curr_fec_encode_time_min_us</field>
+            <field type="uint32_t" name="curr_fec_encode_time_max_us">curr_fec_encode_time_max_us</field>
+            <field type="uint16_t" name="curr_fec_block_size_avg">curr_fec_block_size_avg</field>
+            <field type="uint16_t" name="curr_fec_block_size_min">curr_fec_block_size_min</field>
+            <field type="uint16_t" name="curr_fec_block_size_max">curr_fec_block_size_max</field>
+            <field type="int8_t" name="dummy0">for future use</field>
+            <field type="int16_t" name="dummy1">for future use</field>
+            <field type="int32_t" name="dummy2">for future use</field>
+            <field type="uint32_t" name="dummy3">for future use</field>
+        </message>
+
+        <message id="1216" name="OPENHD_STATS_WB_VIDEO_GROUND">
             <wip />
             <description>Generated on ground,one per primary/secondary video</description>
             <field type="uint8_t" name="link_index">link_index</field>
@@ -129,7 +139,20 @@
             <field type="uint32_t" name="dummy3">for future use</field>
         </message>
 
-        <message id="1216" name="OPENHD_ONBOARD_COMPUTER_STATUS_EXTENSION">
+        <message id="1217" name="OPENHD_STATS_WB_VIDEO_GROUND_FEC_PERFORMANCE">
+            <wip />
+            <description>FEC encode performance stats, only for developers</description>
+            <field type="uint8_t" name="link_index">link_index</field>
+            <field type="uint32_t" name="curr_fec_decode_time_avg_us">todo</field>
+            <field type="uint32_t" name="curr_fec_decode_time_min_us">todo</field>
+            <field type="uint32_t" name="curr_fec_decode_time_max_us">todo</field>
+            <field type="int8_t" name="dummy0">for future use</field>
+            <field type="int16_t" name="dummy1">for future use</field>
+            <field type="int32_t" name="dummy2">for future use</field>
+            <field type="uint32_t" name="dummy3">for future use</field>
+        </message>
+
+        <message id="1218" name="OPENHD_ONBOARD_COMPUTER_STATUS_EXTENSION">
             <wip />
             <description>This is for values that cannot be already done with the mavlink onboard computer status message</description>
             <field type="uint16_t" name="cpu_core_voltage_milliV">cpu_core_voltage_milliV</field>
