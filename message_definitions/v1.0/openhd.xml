@@ -45,13 +45,13 @@
             <field type="int8_t" name="rx_rssi_1">rx rssi in dBm for antenna 1</field>
             <field type="int8_t" name="rx_rssi_2">rx rssi in dBm for antenna 2</field>
             <field type="int16_t" name="tx_power">either in override index units or mW</field>
-            <field type="uint64_t" name="count_p_received">All received (incoming) packets</field>
-            <field type="uint64_t" name="count_p_injected">All injected (outgoing) packets</field>
+            <field type="uint32_t" name="count_p_received">All received (incoming) packets</field>
+            <field type="uint32_t" name="count_p_injected">All injected (outgoing) packets</field>
             <field type="int8_t" name="curr_rx_packet_loss_perc">rx packet loss (for this card)</field>
             <field type="int8_t" name="dummy0">for future use</field>
-            <field type="int32_t" name="dummy1">for future use</field>
+            <field type="int16_t" name="dummy1">for future use</field>
             <field type="int32_t" name="dummy2">for future use</field>
-            <field type="uint64_t" name="dummy3">for future use</field>
+            <field type="uint32_t" name="dummy3">for future use</field>
         </message>
 
         <message id="1212" name="OPENHD_STATS_MONITOR_MODE_WIFI_LINK">
@@ -62,14 +62,14 @@
             <field type="int32_t" name="curr_tx_bps">tx bits per second</field>
             <field type="int32_t" name="curr_rx_bps">rx bits per second</field>
             <field type="int16_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss</field>
-            <field type="uint64_t" name="count_tx_inj_error_hint">count_tx_inj_error_hint</field>
-            <field type="uint64_t" name="count_tx_dropped_packets">count_tx_dropped_packets</field>
+            <field type="uint32_t" name="count_tx_inj_error_hint">count_tx_inj_error_hint</field>
+            <field type="uint32_t" name="count_tx_dropped_packets">count_tx_dropped_packets</field>
             <field type="uint8_t" name="curr_tx_card_idx">curr_tx_card_idx</field>
             <field type="uint8_t" name="curr_tx_mcs_index">curr tx mcs index used when injecting packets</field>
             <field type="int8_t" name="dummy0">for future use</field>
-            <field type="int32_t" name="dummy1">for future use</field>
+            <field type="int16_t" name="dummy1">for future use</field>
             <field type="int32_t" name="dummy2">for future use</field>
-            <field type="uint64_t" name="dummy3">for future use</field>
+            <field type="uint32_t" name="dummy3">for future use</field>
         </message>
 
         <message id="1213" name="OPENHD_STATS_TELEMETRY">
@@ -81,9 +81,9 @@
             <field type="int32_t" name="curr_rx_bps">rx bits per second</field>
             <field type="int16_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss_perc</field>
             <field type="int8_t" name="dummy0">for future use</field>
-            <field type="int32_t" name="dummy1">for future use</field>
+            <field type="int16_t" name="dummy1">for future use</field>
             <field type="int32_t" name="dummy2">for future use</field>
-            <field type="uint64_t" name="dummy3">for future use</field>
+            <field type="uint32_t" name="dummy3">for future use</field>
         </message>
 
         <message id="1214" name="OPENHD_STATS_WB_VIDEO_AIR">
@@ -91,7 +91,7 @@
             <description>Generated on air,one per primary/secondary video</description>
             <field type="uint8_t" name="link_index">link_index</field>
             <field type="uint8_t" name="curr_video_codec">curr_video_codec</field>
-            <field type="int32_t" name="curr_recommended_bitrate">curr_recommended_bitrate</field>
+            <field type="int16_t" name="curr_recommended_bitrate">curr_recommended_bitrate</field>
             <field type="int32_t" name="curr_measured_encoder_bitrate">curr_measured_encoder_bitrate</field>
             <field type="int32_t" name="curr_injected_bitrate">curr_injected_bitrate (+FEC overhead)</field>
             <field type="int32_t" name="curr_injected_pps">curr_injected_pps</field>
@@ -106,9 +106,9 @@
             <field type="int16_t" name="curr_keyframe_interval">curr_keyframe_interval</field>
             <field type="uint8_t" name="recording_active">recording_active</field>
             <field type="int8_t" name="dummy0">for future use</field>
-            <field type="int32_t" name="dummy1">for future use</field>
+            <field type="int16_t" name="dummy1">for future use</field>
             <field type="int32_t" name="dummy2">for future use</field>
-            <field type="uint64_t" name="dummy3">for future use</field>
+            <field type="uint32_t" name="dummy3">for future use</field>
         </message>
 
         <message id="1215" name="OPENHD_STATS_WB_VIDEO_GROUND">
@@ -116,17 +116,17 @@
             <description>Generated on ground,one per primary/secondary video</description>
             <field type="uint8_t" name="link_index">link_index</field>
             <field type="int32_t" name="curr_incoming_bitrate">todo</field>
-            <field type="uint64_t" name="count_blocks_total">count_blocks_total</field>
-            <field type="uint64_t" name="count_blocks_lost">count_blocks_lost</field>
-            <field type="uint64_t" name="count_blocks_recovered">count_blocks_recovered</field>
-            <field type="uint64_t" name="count_fragments_recovered">count_fragments_recovered</field>
+            <field type="uint32_t" name="count_blocks_total">count_blocks_total</field>
+            <field type="uint32_t" name="count_blocks_lost">count_blocks_lost</field>
+            <field type="uint32_t" name="count_blocks_recovered">count_blocks_recovered</field>
+            <field type="uint32_t" name="count_fragments_recovered">count_fragments_recovered</field>
             <field type="uint32_t" name="curr_fec_decode_time_avg_us">todo</field>
             <field type="uint32_t" name="curr_fec_decode_time_min_us">todo</field>
             <field type="uint32_t" name="curr_fec_decode_time_max_us">todo</field>
             <field type="int8_t" name="dummy0">for future use</field>
-            <field type="int32_t" name="dummy1">for future use</field>
+            <field type="int16_t" name="dummy1">for future use</field>
             <field type="int32_t" name="dummy2">for future use</field>
-            <field type="uint64_t" name="dummy3">for future use</field>
+            <field type="uint32_t" name="dummy3">for future use</field>
         </message>
 
         <message id="1216" name="OPENHD_ONBOARD_COMPUTER_STATUS_EXTENSION">
