@@ -57,8 +57,8 @@
         <message id="1212" name="OPENHD_STATS_MONITOR_MODE_WIFI_LINK">
             <wip />
             <description>todo</description>
-            <field type="int32_t" name="curr_tx_pps">tx packets per second</field>
-            <field type="int32_t" name="curr_rx_pps">rx packets per second</field>
+            <field type="int16_t" name="curr_tx_pps">tx packets per second</field>
+            <field type="int16_t" name="curr_rx_pps">rx packets per second</field>
             <field type="int32_t" name="curr_tx_bps">tx bits per second</field>
             <field type="int32_t" name="curr_rx_bps">rx bits per second</field>
             <field type="int16_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss</field>
@@ -66,7 +66,6 @@
             <field type="uint64_t" name="count_tx_dropped_packets">count_tx_dropped_packets</field>
             <field type="uint8_t" name="curr_tx_card_idx">curr_tx_card_idx</field>
             <field type="uint8_t" name="curr_tx_mcs_index">curr tx mcs index used when injecting packets</field>
-            <field type="int16_t" name="curr_rx_packet_loss_perc">curr tx mcs index used when injecting packets</field>
             <field type="int8_t" name="dummy0">for future use</field>
             <field type="int32_t" name="dummy1">for future use</field>
             <field type="int32_t" name="dummy2">for future use</field>
@@ -76,8 +75,8 @@
         <message id="1213" name="OPENHD_STATS_TELEMETRY">
             <wip />
             <description>Telemetry is always bidirectional, so rx / tx stats are available from both air and ground</description>
-            <field type="int32_t" name="curr_tx_pps">tx packets per second</field>
-            <field type="int32_t" name="curr_rx_pps">rx packets per second</field>
+            <field type="int16_t" name="curr_tx_pps">tx packets per second</field>
+            <field type="int16_t" name="curr_rx_pps">rx packets per second</field>
             <field type="int32_t" name="curr_tx_bps">tx bits per second</field>
             <field type="int32_t" name="curr_rx_bps">rx bits per second</field>
             <field type="int16_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss_perc</field>
