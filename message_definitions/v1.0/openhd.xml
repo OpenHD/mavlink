@@ -41,11 +41,17 @@
             <wip />
             <description>Statstics for a monitor mode wifi card</description>
             <field type="uint8_t" name="card_index">A system / component might have more than one card for diversity</field>
-            <field type="int8_t" name="rx_rssi">rx_rssi</field>
-            <field type="uint64_t" name="count_p_received">All received (incoming) packets, not suported by all cards</field>
-            <field type="uint64_t" name="count_p_injected">All injected (outgoing) packets, not suported by all cards</field>
-            <field type="uint64_t" name="dummy0">dummy0</field>
-            <field type="uint64_t" name="dummy1">dummy1</field>
+            <field type="uint8_t" name="card_type">r.n only 0 for rtl8812au</field>
+            <field type="int8_t" name="rx_rssi_1">rx rssi in dBm for antenna 1</field>
+            <field type="int8_t" name="rx_rssi_2">rx rssi in dBm for antenna 2</field>
+            <field type="int16_t" name="tx_power">either in override index units or mW</field>
+            <field type="uint64_t" name="count_p_received">All received (incoming) packets</field>
+            <field type="uint64_t" name="count_p_injected">All injected (outgoing) packets</field>
+            <field type="int8_t" name="curr_rx_packet_loss_perc">rx packet loss (for this card)</field>
+            <field type="int8_t" name="dummy0">for future use</field>
+            <field type="int32_t" name="dummy1">for future use</field>
+            <field type="int32_t" name="dummy2">for future use</field>
+            <field type="uint64_t" name="dummy3">for future use</field>
         </message>
 
         <message id="1212" name="OPENHD_STATS_MONITOR_MODE_WIFI_LINK">
@@ -58,10 +64,13 @@
             <field type="int16_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss</field>
             <field type="uint64_t" name="count_tx_inj_error_hint">count_tx_inj_error_hint</field>
             <field type="uint64_t" name="count_tx_dropped_packets">count_tx_dropped_packets</field>
-            <field type="int32_t" name="unused0">unused0</field>
-            <field type="int32_t" name="unused1">unused1</field>
-            <field type="uint64_t" name="unused2">unused2</field>
-            <field type="uint64_t" name="unused3">unused3</field>
+            <field type="uint8_t" name="curr_tx_card_idx">curr_tx_card_idx</field>
+            <field type="uint8_t" name="curr_tx_mcs_index">curr tx mcs index used when injecting packets</field>
+            <field type="int16_t" name="curr_rx_packet_loss_perc">curr tx mcs index used when injecting packets</field>
+            <field type="int8_t" name="dummy0">for future use</field>
+            <field type="int32_t" name="dummy1">for future use</field>
+            <field type="int32_t" name="dummy2">for future use</field>
+            <field type="uint64_t" name="dummy3">for future use</field>
         </message>
 
         <message id="1213" name="OPENHD_STATS_TELEMETRY">
@@ -72,8 +81,10 @@
             <field type="int32_t" name="curr_tx_bps">tx bits per second</field>
             <field type="int32_t" name="curr_rx_bps">rx bits per second</field>
             <field type="int16_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss_perc</field>
-            <field type="uint64_t" name="unused_0">unused_0</field>
-            <field type="uint64_t" name="unused_1">unused_1</field>
+            <field type="int8_t" name="dummy0">for future use</field>
+            <field type="int32_t" name="dummy1">for future use</field>
+            <field type="int32_t" name="dummy2">for future use</field>
+            <field type="uint64_t" name="dummy3">for future use</field>
         </message>
 
         <message id="1214" name="OPENHD_STATS_WB_VIDEO_AIR">
@@ -92,8 +103,13 @@
             <field type="uint16_t" name="curr_fec_block_size_avg">curr_fec_block_size_avg</field>
             <field type="uint16_t" name="curr_fec_block_size_min">curr_fec_block_size_min</field>
             <field type="uint16_t" name="curr_fec_block_size_max">curr_fec_block_size_max</field>
-            <field type="int32_t" name="unused0">unused0</field>
-            <field type="int32_t" name="unused1">unused1</field>
+            <field type="int16_t" name="curr_fec_percentage">curr_fec_percentage</field>
+            <field type="int16_t" name="curr_keyframe_interval">curr_keyframe_interval</field>
+            <field type="bool" name="recording_active">recording_active</field>
+            <field type="int8_t" name="dummy0">for future use</field>
+            <field type="int32_t" name="dummy1">for future use</field>
+            <field type="int32_t" name="dummy2">for future use</field>
+            <field type="uint64_t" name="dummy3">for future use</field>
         </message>
 
         <message id="1215" name="OPENHD_STATS_WB_VIDEO_GROUND">
@@ -108,8 +124,10 @@
             <field type="uint32_t" name="curr_fec_decode_time_avg_us">todo</field>
             <field type="uint32_t" name="curr_fec_decode_time_min_us">todo</field>
             <field type="uint32_t" name="curr_fec_decode_time_max_us">todo</field>
-            <field type="int32_t" name="unused0">unused0</field>
-            <field type="int32_t" name="unused1">unused1</field>
+            <field type="int8_t" name="dummy0">for future use</field>
+            <field type="int32_t" name="dummy1">for future use</field>
+            <field type="int32_t" name="dummy2">for future use</field>
+            <field type="uint64_t" name="dummy3">for future use</field>
         </message>
 
         <message id="1216" name="OPENHD_ONBOARD_COMPUTER_STATUS_EXTENSION">
