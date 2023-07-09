@@ -160,15 +160,10 @@ int main(int argc, char* argv[])
 		mavlink_msg_attitude_pack(1, 200, &msg, microsSinceEpoch(), 1.2, 1.7, 3.14, 0.01, 0.02, 0.03);
 		len = mavlink_msg_to_send_buffer(buf, &msg);
 		bytes_sent = sendto(sock, buf, len, 0, (struct sockaddr*)&gcAddr, sizeof(struct sockaddr_in));
-
-        // ---------
-        struct sockaddr_in source;
-        socklen_t sourceLen= sizeof(struct sockaddr_in);
-        // ---------
-
+		
+		
 		memset(buf, 0, BUFFER_LENGTH);
-		//recsize = recvfrom(sock, (void *)buf, BUFFER_LENGTH, 0, (struct sockaddr *)&gcAddr, &fromlen);
-        recsize = recvfrom(sock, (void *)buf, BUFFER_LENGTH, 0, (struct sockaddr *)&source, &sourceLen);
+		recsize = recvfrom(sock, (void *)buf, BUFFER_LENGTH, 0, (struct sockaddr *)&gcAddr, &fromlen);
 		if (recsize > 0)
       	{
 			// Something received - print out all bytes and parse packet
