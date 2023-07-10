@@ -47,9 +47,10 @@
             <field type="int16_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss</field>
             <field type="uint32_t" name="count_tx_inj_error_hint">count_tx_inj_error_hint</field>
             <field type="uint32_t" name="count_tx_dropped_packets">count_tx_dropped_packets</field>
-            <field type="uint8_t" name="curr_tx_card_idx">curr_tx_card_idx</field>
+            <field type="uint8_t" name="curr_tx_card_idx">multi rx - idx of card currently selected for TX</field>
+            <field type="uint16_t" name="curr_tx_channel_mhz">curr tx channel used when injecting packets</field>
+            <field type="uint8_t" name="curr_tx_channel_w_mhz">curr tx channel width used when injecting packets (20mhz/40Mhz)</field>
             <field type="uint8_t" name="curr_tx_mcs_index">curr tx mcs index used when injecting packets</field>
-            <field type="uint8_t" name="curr_tx_channel_w">curr tx channel width used when injecting packets</field>
             <field type="int8_t" name="dummy0">for future use</field>
             <field type="int16_t" name="dummy1">for future use</field>
             <field type="int32_t" name="dummy2">for future use</field>
