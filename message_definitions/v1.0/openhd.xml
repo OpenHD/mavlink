@@ -52,6 +52,7 @@
             <field type="uint16_t" name="curr_tx_channel_mhz">curr tx channel used when injecting packets</field>
             <field type="uint8_t" name="curr_tx_channel_w_mhz">curr tx channel width used when injecting packets (20mhz/40Mhz)</field>
             <field type="uint8_t" name="curr_tx_mcs_index">curr tx mcs index used when injecting packets</field>
+            <field type="int8_t" name="tx_passive_mode_is_enabled">OpenHD, act as a passive listener (NO TX EVER), 0=disabled, 1=enabled</field>
             <field type="int8_t" name="dummy0">for future use</field>
             <field type="int16_t" name="dummy1">for future use</field>
             <field type="int32_t" name="dummy2">for future use</field>
@@ -98,7 +99,7 @@
             <field type="int32_t" name="curr_measured_encoder_bitrate">curr_measured_encoder_bitrate</field>
             <field type="int32_t" name="curr_injected_bitrate">curr_injected_bitrate (+FEC overhead)</field>
             <field type="int32_t" name="curr_injected_pps">curr_injected_pps</field>
-            <field type="int32_t" name="curr_dropped_packets">curr_dropped_packets</field>
+            <field type="int32_t" name="curr_dropped_frames">curr_dropped_frames</field>
             <field type="int16_t" name="curr_fec_percentage">curr_fec_percentage</field>
             <field type="int16_t" name="curr_keyframe_interval">curr_keyframe_interval</field>
             <field type="uint8_t" name="recording_active">recording_active</field>
