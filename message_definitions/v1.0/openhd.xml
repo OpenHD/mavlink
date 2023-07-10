@@ -70,6 +70,7 @@
             <field type="uint32_t" name="count_p_received">All received (incoming) packets</field>
             <field type="uint32_t" name="count_p_injected">All injected (outgoing) packets</field>
             <field type="int8_t" name="curr_rx_packet_loss_perc">rx packet loss (for this card)</field>
+            <field type="uint8_t" name="curr_status">set to 1 if something's wrong with the card</field>
             <field type="int8_t" name="dummy0">for future use</field>
             <field type="int16_t" name="dummy1">for future use</field>
             <field type="int32_t" name="dummy2">for future use</field>
