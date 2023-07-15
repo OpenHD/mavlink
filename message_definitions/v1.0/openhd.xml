@@ -104,8 +104,6 @@
             <field type="int32_t" name="curr_injected_pps">curr_injected_pps</field>
             <field type="int32_t" name="curr_dropped_frames">curr_dropped_frames</field>
             <field type="int16_t" name="curr_fec_percentage">curr_fec_percentage</field>
-            <field type="int16_t" name="curr_keyframe_interval">curr_keyframe_interval</field>
-            <field type="uint8_t" name="recording_active">recording_active</field>
             <field type="int8_t" name="dummy0">for future use</field>
             <field type="int16_t" name="dummy1">for future use</field>
             <field type="int32_t" name="dummy2">for future use</field>
@@ -167,6 +165,22 @@
             <field type="uint16_t" name="reserved4">reserved1</field>
         </message>
 
+        <message id="1219" name="OPENHD_CAMERA_STATUS">
+            <wip />
+            <description>Info / stats about a openhd camera (stream) that are regularly sent (broadcast)</description>
+            <field type="uint8_t" name="cam_index">0 for primary, 1 for secondary</field>
+            <field type="uint8_t" name="cam_type">r.n only 0 for rpi csi cam mmal, 1 for rpi csi cam libcamera</field>
+            <field type="uint8_t" name="air_recording_active">air_recording_active</field>
+            <field type="uint8_t" name="encoding_format">0 for h264, 1 for h265, 2 for mjpeg</field>
+            <field type="uint16_t" name="encoding_bitrate_kbits">encoding_bitrate_kbits</field>
+            <field type="uint8_t" name="encoding_keyframe_interval">encoding_keyframe_interval</field>
+            <field type="uint16_t" name="stream_w">streamed video width</field>
+            <field type="uint16_t" name="stream_h">streamed video height</field>
+            <field type="uint16_t" name="stream_fps">streamed video fps</field>
+            <field type="uint16_t" name="reserved1">reserved1</field>
+            <field type="uint16_t" name="reserved2">reserved2</field>
+        </message>
+
         <message id="1260" name="OPENHD_LOG_MESSAGE">
             <description>Log message for internal Open.HD components</description>
             <field type="uint8_t" name="severity" enum="MAV_SEVERITY">severity level, relies on the definitions within RFC-5424.</field>
@@ -180,6 +194,7 @@
             <field type="char[30]" name="version">version string, 29 character max length since it *must* be null-terminated</field>
             <field type="char[30]" name="commit_hash">commit_hash, 29 character max length since it *must* be null-terminated</field>
         </message>
+
 
     </messages>
 
