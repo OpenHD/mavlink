@@ -181,7 +181,7 @@
             <field type="uint16_t" name="reserved2">reserved2</field>
         </message>
 
-        <message id="1260" name="OPENHD_LOG_MESSAGE">
+        <message id="1220" name="OPENHD_LOG_MESSAGE">
             <description>Log message for internal Open.HD components</description>
             <field type="uint8_t" name="severity" enum="MAV_SEVERITY">severity level, relies on the definitions within RFC-5424.</field>
             <field type="char[10]" name="tag">log tag,must not be null-terminated</field>
@@ -189,7 +189,7 @@
             <field type="uint64_t" name="timestamp">timestamp when message was originally generated</field>
         </message>
 
-        <message id="1261" name="OPENHD_VERSION_MESSAGE">
+        <message id="1221" name="OPENHD_VERSION_MESSAGE">
             <description>The current Open.HD version running on the system sending the message</description>
             <field type="char[30]" name="version">version string, 29 character max length since it *must* be null-terminated</field>
             <field type="char[30]" name="commit_hash">commit_hash, 29 character max length since it *must* be null-terminated</field>
