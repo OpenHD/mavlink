@@ -97,7 +97,6 @@
             <wip />
             <description>Generated on air,one per primary/secondary video</description>
             <field type="uint8_t" name="link_index">link_index</field>
-            <field type="uint8_t" name="curr_video_codec">curr_video_codec</field>
             <field type="int16_t" name="curr_recommended_bitrate">curr_recommended_bitrate</field>
             <field type="int32_t" name="curr_measured_encoder_bitrate">curr_measured_encoder_bitrate</field>
             <field type="int32_t" name="curr_injected_bitrate">curr_injected_bitrate (+FEC overhead)</field>
