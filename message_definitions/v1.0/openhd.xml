@@ -177,6 +177,7 @@
             <field type="uint16_t" name="stream_fps">streamed video fps</field>
             <field type="uint16_t" name="reserved1">reserved1</field>
             <field type="uint16_t" name="reserved2">reserved2</field>
+            <field type="uint32_t" name="reserved3">reserved3</field>
         </message>
 
         <message id="1220" name="OPENHD_LOG_MESSAGE">
