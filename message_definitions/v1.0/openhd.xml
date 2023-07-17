@@ -51,7 +51,7 @@
             <field type="uint8_t" name="curr_tx_card_idx">multi rx - idx of card currently selected for TX</field>
             <field type="uint16_t" name="curr_tx_channel_mhz">curr tx channel used when injecting packets</field>
             <field type="uint8_t" name="curr_tx_channel_w_mhz">curr tx channel width used when injecting packets (20mhz/40Mhz)</field>
-            <field type="uint8_t" name="curr_tx_stbc_lpdc_shortguard">bit field where first 3 bits refer to weather stbc,ldpc or short guard are enabled</field>
+            <field type="uint8_t" name="curr_tx_stbc_lpdc_shortguard_bitfield">bit field where first 3 bits refer to weather stbc,ldpc or short guard are enabled</field>
             <field type="uint8_t" name="curr_tx_mcs_index">curr tx mcs index used when injecting packets</field>
             <field type="uint16_t" name="curr_rate_kbits">curr link rate, in kbit/s, might be slightly lower than default for MCS when TX errors are detected</field>
             <field type="int8_t" name="tx_passive_mode_is_enabled">OpenHD, act as a passive listener (NO TX EVER), 0=disabled, 1=enabled</field>
