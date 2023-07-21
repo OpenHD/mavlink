@@ -44,7 +44,7 @@
             <field type="int16_t" name="curr_rx_pps">rx packets per second</field>
             <field type="int32_t" name="curr_tx_bps">tx bits per second</field>
             <field type="int32_t" name="curr_rx_bps">rx bits per second</field>
-            <field type="int16_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss</field>
+            <field type="int8_t" name="curr_rx_packet_loss_perc">curr_rx_packet_loss</field>
             <field type="int16_t" name="curr_rx_big_gaps_counter">complicated but important stat</field>
             <field type="uint32_t" name="count_tx_inj_error_hint">count_tx_inj_error_hint</field>
             <field type="uint32_t" name="count_tx_dropped_packets">count_tx_dropped_packets</field>
