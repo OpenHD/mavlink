@@ -168,7 +168,7 @@
         <message id="1219" name="OPENHD_CAMERA_STATUS">
             <wip />
             <description>Info / stats about a openhd camera (stream) that are regularly sent (broadcast)</description>
-            <field type="uint8_t" name="cam_type">r.n only 0 for rpi csi cam mmal, 1 for rpi csi cam libcamera</field>
+            <field type="uint8_t" name="cam_type">0==Unknown, follows the definitions in openhd (camera_enums.hpp)</field>
             <field type="uint8_t" name="air_recording_active">air_recording_active</field>
             <field type="uint8_t" name="encoding_format">0 for h264, 1 for h265, 2 for mjpeg</field>
             <field type="uint16_t" name="encoding_bitrate_kbits">encoding_bitrate_kbits</field>
