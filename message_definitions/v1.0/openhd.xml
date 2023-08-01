@@ -162,6 +162,8 @@
             <wip />
             <description>Info / stats about a openhd camera (stream) that are regularly sent (broadcast)</description>
             <field type="uint8_t" name="cam_type">0==Unknown, follows the definitions in openhd (camera_enums.hpp)</field>
+            <field type="uint8_t" name="cam_status">0==Unknown, 1==camera is currently streaming, 2==camera is currently restarting</field>
+            <field type="uint8_t" name="supports_variable_bitrate">Set to 1 if camera supports variable bitrate (changing the bitrate)</field>
             <field type="uint8_t" name="air_recording_active">air_recording_active</field>
             <field type="uint8_t" name="encoding_format">0 for h264, 1 for h265, 2 for mjpeg</field>
             <field type="uint16_t" name="encoding_bitrate_kbits">encoding_bitrate_kbits</field>
