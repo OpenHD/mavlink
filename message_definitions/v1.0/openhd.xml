@@ -68,6 +68,7 @@
             <field type="uint8_t" name="card_type">r.n only 0 for rtl8812au</field>
             <field type="int8_t" name="rx_rssi_1">rx rssi in dBm for antenna 1</field>
             <field type="int8_t" name="rx_rssi_2">rx rssi in dBm for antenna 2</field>
+            <field type="int8_t" name="rx_signal_quality">depends on the wifi driver</field>
             <field type="int16_t" name="tx_power">either in override index units or mW</field>
             <field type="uint32_t" name="count_p_received">All received (incoming) packets</field>
             <field type="uint32_t" name="count_p_injected">All injected (outgoing) packets</field>
