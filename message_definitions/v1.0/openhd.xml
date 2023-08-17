@@ -66,8 +66,10 @@
             <description>Statstics for a monitor mode wifi card</description>
             <field type="uint8_t" name="card_index">A system / component might have more than one card for diversity</field>
             <field type="uint8_t" name="card_type">r.n only 0 for rtl8812au</field>
+            <field type="int8_t" name="rx_rssi">rx rssi in dBm of this card - depending on the hw, might be the max of all antennas or different</field>
             <field type="int8_t" name="rx_rssi_1">rx rssi in dBm for antenna 1</field>
             <field type="int8_t" name="rx_rssi_2">rx rssi in dBm for antenna 2</field>
+            <field type="int8_t" name="rx_rssi_noise">depends on the wifi driver</field>
             <field type="int8_t" name="rx_signal_quality">depends on the wifi driver</field>
             <field type="int16_t" name="tx_power">either in override index units or mW</field>
             <field type="uint32_t" name="count_p_received">All received (incoming) packets</field>
@@ -189,6 +191,13 @@
             <description>The current Open.HD version running on the system sending the message</description>
             <field type="char[30]" name="version">version string, 29 character max length since it *must* be null-terminated</field>
             <field type="char[30]" name="commit_hash">commit_hash, 29 character max length since it *must* be null-terminated</field>
+        </message>
+
+        <message id="1222" name="OPENHD_WIFBROADCAST_SUPPORTED_CHANNELS">
+            <description>Supported wifibroadcast channels (by a wifibroadcast card). Legal or not is not checked</description>
+            <field type="uint8_t" name="card_index">index of the wifibroadcast card (RX might have multiple)</field>
+            <field type="uint16_t[60]" name="channels">List of supported channels, 0 to indicate an empty field.Always in 20Mhz increments</field>
+            <field type="uint8_t[80]" name="bandwidths">TODO</field>
         </message>
 
 
