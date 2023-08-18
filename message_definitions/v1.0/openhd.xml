@@ -200,6 +200,24 @@
             <field type="uint8_t[80]" name="bandwidths">TODO</field>
         </message>
 
+        <message id="1223" name="OPENHD_WIFBROADCAST_SCAN_CHANNELS_PROGRESS">
+            <description>Progress of openhd wifibroadcast scan channels feature</description>
+            <field type="uint8_t" name="progress">progress [0..100]</field>
+            <field type="uint16_t" name="channel_mhz">Scanned channel</field>
+            <field type="uint8_t" name="channel_width_mhz">channel width mhz</field>
+        </message>
+
+        <message id="1223" name="OPENHD_WIFBROADCAST_ANALYZE_CHANNELS_PROGRESS">
+            <description>Progress of openhd wifibroadcast analyze channels feature</description>
+            <field type="uint8_t" name="progress">progress [0..100]</field>
+            <field type="uint16_t" name="channel_mhz">Scanned channel</field>
+            <field type="uint8_t" name="channel_width_mhz">channel width mhz</field>
+            <field type="uint16_t" name="foreign_packets">foreign packets</field>
+            <field type="uint16_t" name="dummy0">future use</field>
+            <field type="int32_t" name="dummy1">future use</field>
+            <field type="int32_t" name="dummy2">future use</field>
+        </message>
+
 
     </messages>
 
