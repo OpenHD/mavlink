@@ -207,7 +207,7 @@
             <field type="uint8_t" name="channel_width_mhz">channel width mhz</field>
         </message>
 
-        <message id="1223" name="OPENHD_WIFBROADCAST_ANALYZE_CHANNELS_PROGRESS">
+        <message id="1224" name="OPENHD_WIFBROADCAST_ANALYZE_CHANNELS_PROGRESS">
             <description>Progress of openhd wifibroadcast analyze channels feature</description>
             <field type="uint8_t" name="progress">progress [0..100]</field>
             <field type="uint16_t" name="channel_mhz">Scanned channel</field>
