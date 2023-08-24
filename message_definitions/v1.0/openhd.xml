@@ -69,13 +69,15 @@
             <wip />
             <description>Statstics for a monitor mode wifi card</description>
             <field type="uint8_t" name="card_index">A system / component might have more than one card for diversity</field>
-            <field type="uint8_t" name="card_type">r.n only 0 for rtl8812au</field>
+            <field type="uint8_t" name="card_type">0=unknown, 1=RTL8812AU, 2=RTL8812BU, ... (see openhd card_type enum)</field>
             <field type="int8_t" name="rx_rssi">rx rssi in dBm of this card - depending on the hw, might be the max of all antennas or different</field>
             <field type="int8_t" name="rx_rssi_1">rx rssi in dBm for antenna 1</field>
             <field type="int8_t" name="rx_rssi_2">rx rssi in dBm for antenna 2</field>
             <field type="int8_t" name="rx_rssi_noise">depends on the wifi driver</field>
             <field type="int8_t" name="rx_signal_quality">depends on the wifi driver</field>
-            <field type="int16_t" name="tx_power">either in override index units or mW</field>
+            <field type="int16_t" name="tx_power_current">either in override index units or mW</field>
+            <field type="int16_t" name="tx_power_armed">either in override index units or mW</field>
+            <field type="int16_t" name="tx_power_disarmed">either in override index units or mW</field>
             <field type="uint32_t" name="count_p_received">All received (incoming) packets</field>
             <field type="uint32_t" name="count_p_injected">All injected (outgoing) packets</field>
             <field type="int8_t" name="curr_rx_packet_loss_perc">rx packet loss (for this card)</field>
@@ -123,6 +125,9 @@
             <field type="uint16_t" name="curr_fec_block_size_avg">curr_fec_block_size_avg</field>
             <field type="uint16_t" name="curr_fec_block_size_min">curr_fec_block_size_min</field>
             <field type="uint16_t" name="curr_fec_block_size_max">curr_fec_block_size_max</field>
+            <field type="uint16_t" name="curr_tx_delay_avg_us">none</field>
+            <field type="uint16_t" name="curr_tx_delay_min_us">none</field>
+            <field type="uint16_t" name="curr_tx_delay_max_us">none</field>
             <field type="int8_t" name="dummy0">for future use</field>
             <field type="int16_t" name="dummy1">for future use</field>
             <field type="int32_t" name="dummy2">for future use</field>
