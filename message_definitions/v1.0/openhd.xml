@@ -52,14 +52,13 @@
             <field type="int16_t" name="curr_rx_big_gaps_counter">complicated but important stat</field>
             <field type="uint32_t" name="count_tx_inj_error_hint">count_tx_inj_error_hint</field>
             <field type="uint32_t" name="count_tx_dropped_packets">count_tx_dropped_packets</field>
-            <field type="uint8_t" name="curr_tx_card_idx">multi rx - idx of card currently selected for TX</field>
             <field type="uint16_t" name="curr_tx_channel_mhz">curr tx channel used when injecting packets</field>
             <field type="uint8_t" name="curr_tx_channel_w_mhz">curr tx channel width used when injecting packets (20mhz/40Mhz)</field>
-            <field type="uint8_t" name="curr_tx_stbc_lpdc_shortguard_bitfield">bit field where first 3 bits refer to weather stbc,ldpc or short guard are enabled</field>
             <field type="uint8_t" name="curr_tx_mcs_index">curr tx mcs index used when injecting packets</field>
             <field type="uint16_t" name="curr_rate_kbits">curr link rate, in kbit/s, might be slightly lower than default for MCS when TX errors are detected</field>
-            <field type="int8_t" name="tx_passive_mode_is_enabled">OpenHD, act as a passive listener (NO TX EVER), 0=disabled, 1=enabled</field>
             <field type="uint8_t" name="curr_n_rate_adjustments">If the TX cannot keep up (at a given mcs), openhd reduces the bitrate in 1MBit/s increments</field>
+            <field type="uint8_t" name="bitfield">bitfield, see openhd for usage.</field>
+            <field type="uint8_t" name="pollution_perc">pollution [0..100],aka percentage of foreign vs openhd packets on the current channel.</field>
             <field type="int8_t" name="dummy0">for future use</field>
             <field type="int16_t" name="dummy1">for future use</field>
             <field type="int32_t" name="dummy2">for future use</field>
@@ -68,11 +67,14 @@
         <message id="1212" name="OPENHD_STATS_MONITOR_MODE_WIFI_CARD">
             <wip />
             <description>Statstics for a monitor mode wifi card</description>
-            <field type="uint8_t" name="card_index">A system / component might have more than one card for diversity</field>
-            <field type="uint8_t" name="card_type">0=unknown, 1=RTL8812AU, 2=RTL8812BU, ... (see openhd card_type enum)</field>
-            <field type="int8_t" name="rx_rssi">rx rssi in dBm of this card - depending on the hw, might be the max of all antennas or different</field>
+            <field type="uint8_t" name="card_index">Ground might have multiple card(s) for diversity.</field>
+            <field type="uint8_t" name="card_type">See openhd card_type enum</field>
+            <field type="uint8_t" name="tx_active">On ground stations with multiple card(s), only one card is selected for TX at a time.</field>
+            <field type="int8_t" name="rx_rssi">rx rssi in dBm of this card - depending on the hw, might be the max of all antennas or different.</field>
             <field type="int8_t" name="rx_rssi_1">rx rssi in dBm for antenna 1</field>
             <field type="int8_t" name="rx_rssi_2">rx rssi in dBm for antenna 2</field>
+            <field type="int8_t" name="rx_evm_1">rx evm in dBm for antenna 1</field>
+            <field type="int8_t" name="rx_evm_2">rx evm in dBm for antenna 2</field>
             <field type="int8_t" name="rx_rssi_noise">depends on the wifi driver</field>
             <field type="int8_t" name="rx_signal_quality">depends on the wifi driver</field>
             <field type="int16_t" name="tx_power_current">either in override index units or mW</field>
@@ -170,7 +172,7 @@
             <field type="uint16_t" name="reserved4">reserved1</field>
         </message>
 
-        <message id="1219" name="OPENHD_CAMERA_STATUS">
+        <message id="1219" name="OPENHD_CAMERA_STATUS_AIR">
             <wip />
             <description>Info / stats about a openhd camera (stream) that are regularly sent (broadcast)</description>
             <field type="uint8_t" name="cam_type">0==Unknown, follows the definitions in openhd (camera_enums.hpp)</field>
@@ -206,28 +208,31 @@
             <description>Supported wifibroadcast channels (by a wifibroadcast card). Legal or not is not checked</description>
             <field type="uint8_t" name="card_index">index of the wifibroadcast card (RX might have multiple)</field>
             <field type="uint16_t[60]" name="channels">List of supported channels, 0 to indicate an empty field.Always in 20Mhz increments</field>
-            <field type="uint8_t[80]" name="bandwidths">TODO</field>
+            <field type="uint8_t[60]" name="bandwidths">TODO</field>
         </message>
 
-        <message id="1223" name="OPENHD_WIFBROADCAST_SCAN_CHANNELS_PROGRESS">
-            <description>Progress of openhd wifibroadcast scan channels feature</description>
-            <field type="uint8_t" name="progress">progress [0..100]</field>
-            <field type="uint16_t" name="channel_mhz">Scanned channel</field>
-            <field type="uint8_t" name="channel_width_mhz">channel width mhz</field>
-            <field type="uint8_t" name="success">Set to 1 if openhd air unit was found on this channel (break)</field>
-        </message>
-
-        <message id="1224" name="OPENHD_WIFBROADCAST_ANALYZE_CHANNELS_PROGRESS">
-            <description>Progress of openhd wifibroadcast analyze channels feature</description>
-            <field type="uint8_t" name="progress">progress [0..100]</field>
-            <field type="uint16_t" name="channel_mhz">Scanned channel</field>
-            <field type="uint8_t" name="channel_width_mhz">channel width mhz</field>
-            <field type="uint16_t" name="foreign_packets">foreign packets</field>
+        <message id="1223" name="OPENHD_WIFBROADCAST_ANALYZE_CHANNELS_RESULT">
+            <description>Progress of openhd wifibroadcast analyze channels feature.</description>
+            <field type="uint16_t[30]" name="channels_mhz">List of already scanned channels,set to 0 if not yet scanned.</field>
+            <field type="uint16_t[30]" name="foreign_packets">for each already scanned channel,the n of foreign packets received.</field>
+            <field type="uint16_t[30]" name="dummy">future use</field>
             <field type="uint16_t" name="dummy0">future use</field>
             <field type="int32_t" name="dummy1">future use</field>
             <field type="int32_t" name="dummy2">future use</field>
         </message>
 
+        <message id="1224" name="OPENHD_WIFBROADCAST_GND_OPERATING_MODE">
+            <description>More info about the WB ground station operating mode. Similar to command protocol, we have variables that need to be interpreted depending on the operating mode.</description>
+            <field type="uint8_t" name="operating_mode">0=normal,1=currently scanning, 2=currently analyzing</field>
+            <field type="uint16_t" name="extra_channel_mhz">channel that is currently scanned / analyzed, 0 otherwise</field>
+            <field type="uint8_t" name="extra_channel_width_mhz">samel like extra channel, for bandwidth</field>
+            <field type="uint8_t" name="progress">progress [0..100], when scanning / analyzing is active,undefined otherwise.</field>
+            <field type="uint8_t" name="success">Set to 1 if channel scan succeeded.</field>
+            <field type="int8_t" name="tx_passive_mode_is_enabled">Act as a passive listener (NO TX EVER), 0=disabled, 1=enabled.</field>
+            <field type="uint16_t" name="dummy0">future use</field>
+            <field type="int32_t" name="dummy1">future use</field>
+            <field type="int32_t" name="dummy2">future use</field>
+        </message>
 
     </messages>
 
