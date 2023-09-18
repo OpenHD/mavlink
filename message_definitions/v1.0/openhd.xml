@@ -211,23 +211,28 @@
             <field type="uint8_t[60]" name="bandwidths">TODO</field>
         </message>
 
-        <message id="1223" name="OPENHD_WIFBROADCAST_ANALYZE_CHANNELS_RESULT">
+        <message id="1223" name="OPENHD_WIFBROADCAST_SCAN_CHANNELS_PROGRESS">
+            <description>Progress of openhd wifibroadcast scan channels feature</description>
+            <field type="uint8_t" name="progress">progress [0..100]</field>
+            <field type="uint16_t" name="channel_mhz">Scanned channel</field>
+            <field type="uint8_t" name="channel_width_mhz">channel width mhz</field>
+            <field type="uint8_t" name="success">Set to 1 if openhd air unit was found on this channel (break)</field>
+        </message>
+
+        <message id="1224" name="OPENHD_WIFBROADCAST_ANALYZE_CHANNELS_PROGRESS">
             <description>Progress of openhd wifibroadcast analyze channels feature.</description>
             <field type="uint16_t[30]" name="channels_mhz">List of already scanned channels,set to 0 if not yet scanned.</field>
             <field type="uint16_t[30]" name="foreign_packets">for each already scanned channel,the n of foreign packets received.</field>
             <field type="uint16_t[30]" name="dummy">future use</field>
+            <field type="int8_t" name="progress_perc">progress,in percent [0..100]</field>
             <field type="uint16_t" name="dummy0">future use</field>
             <field type="int32_t" name="dummy1">future use</field>
             <field type="int32_t" name="dummy2">future use</field>
         </message>
 
-        <message id="1224" name="OPENHD_WIFBROADCAST_GND_OPERATING_MODE">
+        <message id="1225" name="OPENHD_WIFBROADCAST_GND_OPERATING_MODE">
             <description>More info about the WB ground station operating mode. Similar to command protocol, we have variables that need to be interpreted depending on the operating mode.</description>
             <field type="uint8_t" name="operating_mode">0=normal,1=currently scanning, 2=currently analyzing</field>
-            <field type="uint16_t" name="extra_channel_mhz">channel that is currently scanned / analyzed, 0 otherwise</field>
-            <field type="uint8_t" name="extra_channel_width_mhz">samel like extra channel, for bandwidth</field>
-            <field type="uint8_t" name="progress">progress [0..100], when scanning / analyzing is active,undefined otherwise.</field>
-            <field type="uint8_t" name="success">Set to 1 if channel scan succeeded.</field>
             <field type="int8_t" name="tx_passive_mode_is_enabled">Act as a passive listener (NO TX EVER), 0=disabled, 1=enabled.</field>
             <field type="uint16_t" name="dummy0">future use</field>
             <field type="int32_t" name="dummy1">future use</field>
