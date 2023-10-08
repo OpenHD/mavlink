@@ -73,10 +73,12 @@
             <field type="int8_t" name="rx_rssi">rx rssi in dBm of this card - depending on the hw, might be the max of all antennas or different.</field>
             <field type="int8_t" name="rx_rssi_1">rx rssi in dBm for antenna 1</field>
             <field type="int8_t" name="rx_rssi_2">rx rssi in dBm for antenna 2</field>
-            <field type="int8_t" name="rx_evm_1">rx evm in dBm for antenna 1</field>
-            <field type="int8_t" name="rx_evm_2">rx evm in dBm for antenna 2</field>
-            <field type="int8_t" name="rx_rssi_noise">depends on the wifi driver</field>
-            <field type="int8_t" name="rx_signal_quality">depends on the wifi driver</field>
+            <field type="int8_t" name="rx_noise_adapter">RX noise in dBm of adapter</field>
+            <field type="int8_t" name="rx_noise_antenna1">RX noise in dBm of antenna1</field>
+            <field type="int8_t" name="rx_noise_antenna2">RX noise in dBm of antenna2</field>
+            <field type="int8_t" name="rx_signal_quality_adapter">Signal quality [0..100] of card</field>
+            <field type="int8_t" name="rx_signal_quality_antenna1">Signal quality [0..100] of antenna1</field>
+            <field type="int8_t" name="rx_signal_quality_antenna2">Signal quality [0..100] of antenna2</field>
             <field type="int16_t" name="tx_power_current">either in override index units or mW</field>
             <field type="int16_t" name="tx_power_armed">either in override index units or mW</field>
             <field type="int16_t" name="tx_power_disarmed">either in override index units or mW</field>
@@ -235,6 +237,17 @@
             <field type="uint8_t" name="operating_mode">0=normal,1=currently scanning, 2=currently analyzing</field>
             <field type="int8_t" name="tx_passive_mode_is_enabled">Act as a passive listener (NO TX EVER), 0=disabled, 1=enabled.</field>
             <field type="uint16_t" name="dummy0">future use</field>
+            <field type="int32_t" name="dummy1">future use</field>
+            <field type="int32_t" name="dummy2">future use</field>
+        </message>
+
+        <message id="1226" name="OPENHD_SYS_STATUS1">
+            <description>More info about the current state of different openhd feature(s)</description>
+            <field type="uint8_t" name="external_devices_count">N of connected external devices</field>
+            <field type="uint8_t" name="wifi_hotspot_state">0 - not available, 1 - off, 2 - on</field>
+            <field type="uint16_t" name="wifi_hotspot_frequency">Frequency of the wifi hotspot.</field>
+            <field type="uint8_t" name="ethernet_hotspot_state"> 0 - not managed by openhd, 1 - dhcpcd client, 2 dhcpcd server</field>
+            <field type="uint8_t" name="dummy0">future use</field>
             <field type="int32_t" name="dummy1">future use</field>
             <field type="int32_t" name="dummy2">future use</field>
         </message>
