@@ -177,7 +177,7 @@
         <message id="1219" name="OPENHD_CAMERA_STATUS_AIR">
             <wip />
             <description>Info / stats about a openhd camera (stream) that are regularly sent (broadcast)</description>
-            <field type="uint8_t" name="cam_type">0==Unknown, follows the definitions in openhd (camera_enums.hpp)</field>
+            <field type="uint8_t" name="cam_type">0==Unknown, follows the definitions in openhd</field>
             <field type="uint8_t" name="cam_status">0==Unknown, 1==camera is currently streaming, 2==camera is currently restarting</field>
             <field type="uint8_t" name="supports_variable_bitrate">Set to 1 if camera supports variable bitrate (changing the bitrate)</field>
             <field type="uint8_t" name="air_recording_active">air_recording_active</field>
@@ -192,18 +192,13 @@
             <field type="int32_t" name="dummy2">for future use</field>
         </message>
 
-        <message id="1220" name="OPENHD_LOG_MESSAGE">
-            <description>Log message for internal Open.HD components</description>
-            <field type="uint8_t" name="severity" enum="MAV_SEVERITY">severity level, relies on the definitions within RFC-5424.</field>
-            <field type="char[10]" name="tag">log tag,must not be null-terminated</field>
-            <field type="char[50]" name="message">log message,must not be null-terminated</field>
-            <field type="uint64_t" name="timestamp">timestamp when message was originally generated</field>
-        </message>
-
         <message id="1221" name="OPENHD_VERSION_MESSAGE">
             <description>The current Open.HD version running on the system sending the message</description>
-            <field type="char[30]" name="version">version string, 29 character max length since it *must* be null-terminated</field>
-            <field type="char[30]" name="commit_hash">commit_hash, 29 character max length since it *must* be null-terminated</field>
+            <field type="uint8_t" name="major">major version,e.g. 2</field>
+            <field type="uint8_t" name="minor">minor version,e.g. 5</field>
+            <field type="uint8_t" name="patch">patch version,e.g. 1</field>
+            <field type="uint8_t" name="release_type">release=0,beta=1,alpha=2,development=3</field>
+            <field type="uint8_t" name="dummy">reserved for future use</field>
         </message>
 
         <message id="1222" name="OPENHD_WIFBROADCAST_SUPPORTED_CHANNELS">
@@ -242,7 +237,8 @@
         </message>
 
         <message id="1226" name="OPENHD_SYS_STATUS1">
-            <description>More info about the current state of different openhd feature(s)</description>
+            <description>More info about an openhd system</description>
+            <field type="uint8_t" name="platform_type">platform type, as defined in openhd core</field>
             <field type="uint8_t" name="external_devices_count">N of connected external devices</field>
             <field type="uint8_t" name="wifi_hotspot_state">0 - not available, 1 - off, 2 - on</field>
             <field type="uint16_t" name="wifi_hotspot_frequency">Frequency of the wifi hotspot.</field>
@@ -251,6 +247,7 @@
             <field type="int32_t" name="dummy1">future use</field>
             <field type="int32_t" name="dummy2">future use</field>
         </message>
+
 
     </messages>
 
