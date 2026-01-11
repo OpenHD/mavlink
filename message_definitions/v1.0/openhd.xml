@@ -248,6 +248,47 @@
             <field type="int32_t" name="dummy2">future use</field>
         </message>
 
+        <message id="1227" name="OPENHD_CORE_STATUS">
+            <description>OpenHD Core Hardware Status</description>
+            <field type="int8_t" name="cpu_temp" units="degC">CPU temperature</field>
+            <field type="int8_t" name="wifi0_temp" units="degC">Wifi card 0 temperature</field>
+            <field type="int8_t" name="wifi1_temp" units="degC">Wifi card 1 temperature</field>
+            <field type="uint16_t" name="cpu_clock" units="MHz">CPU clock</field>
+            <field type="uint16_t" name="isp_clock" units="MHz">ISP clock</field>
+            <field type="uint16_t" name="h264_clock" units="MHz">H264 clock</field>
+            <field type="uint16_t" name="core_clock" units="MHz">Core clock</field>
+            <field type="uint16_t" name="v3d_clock" units="MHz">V3D clock</field>
+            <field type="uint32_t" name="storage_left_mb" units="MiB">Storage space left</field>
+            <field type="uint8_t" name="undervolt_status">Undervolt status (0=false, 1=true)</field>
+            <field type="uint8_t" name="platform_type">Platform type</field>
+            <field type="uint8_t" name="encryption_enabled">Encryption enabled (0=false, 1=true)</field>
+            <field type="uint8_t" name="fc_sys_id">Flight controller system ID</field>
+            <field type="uint8_t" name="operating_mode">Operating mode</field>
+        </message>
+
+        <message id="1228" name="OPENHD_POWER_STATUS">
+            <description>OpenHD Power Management Status</description>
+            <field type="uint16_t" name="voltage_mv" units="mV">Voltage in millivolts</field>
+            <field type="int16_t" name="current_ma" units="mA">Current in milliamperes</field>
+            <field type="uint8_t" name="charging_status">0=Unknown, 1=Charging, 2=Discharging, 3=Not Charging</field>
+            <field type="uint8_t" name="battery_percent" units="%">Battery percentage (0-100)</field>
+        </message>
+
+        <message id="1229" name="OPENHD_MICROHARD_STATUS">
+            <description>OpenHD Microhard Radio Status</description>
+            <field type="uint8_t" name="enabled">Enabled status</field>
+            <field type="int8_t" name="rssi" units="dBm">RSSI</field>
+            <field type="uint8_t" name="tx_power">TX Power</field>
+            <field type="uint8_t" name="bandwidth">Bandwidth</field>
+            <field type="uint32_t" name="frequency" units="Hz">Frequency</field>
+            <field type="int8_t" name="noise">Noise</field>
+            <field type="uint8_t" name="snr">SNR</field>
+        </message>
+
+        <message id="1230" name="OPENHD_RTSP_CONFIGURATION">
+            <description>RTSP Stream Configuration</description>
+            <field type="char[255]" name="stream_uri">RTSP Stream URI</field>
+        </message>
 
     </messages>
 
