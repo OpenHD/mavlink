@@ -59,8 +59,9 @@
             <field type="uint8_t" name="curr_n_rate_adjustments">If the TX cannot keep up (at a given mcs), openhd reduces the bitrate in 1MBit/s increments</field>
             <field type="uint8_t" name="bitfield">bitfield, see openhd for usage.</field>
             <field type="uint8_t" name="pollution_perc">pollution [0..100],aka percentage of foreign vs openhd packets on the current channel.</field>
-            <field type="int8_t" name="dummy0">for future use</field>
-            <field type="int16_t" name="dummy1">for future use</field>
+            <field type="int8_t" name="rx_snr_antenna1">SNR in dB for antenna1</field>
+            <field type="int8_t" name="rx_snr_antenna2">SNR in dB for antenna2</field>
+            <field type="int8_t" name="card_temperature">Wifi card temperature [degC]</field>
             <field type="int32_t" name="dummy2">for future use</field>
         </message>
 
