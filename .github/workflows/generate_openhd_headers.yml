@@ -3,7 +3,7 @@ name: Generate OpenHD headers
 on:
   push:
     branches:
-      - master
+      - openhd
     paths:
       - message_definitions/v1.0/openhd.xml
       - pymavlink/**
