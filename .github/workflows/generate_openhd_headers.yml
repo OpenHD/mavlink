@@ -1,0 +1,53 @@
+name: Generate OpenHD headers
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - message_definitions/v1.0/openhd.xml
+      - pymavlink/**
+      - .github/workflows/generate_openhd_headers.yml
+  pull_request:
+    paths:
+      - message_definitions/v1.0/openhd.xml
+      - pymavlink/**
+      - .github/workflows/generate_openhd_headers.yml
+
+permissions:
+  contents: write
+
+jobs:
+  generate-openhd:
+    name: Generate OpenHD C headers
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: |
+          pip install future lxml
+      - name: Generate OpenHD headers
+        run: |
+          rm -rf generated/include/mavlink/v2.0/openhd
+          mkdir -p generated/include/mavlink/v2.0/openhd
+          python pymavlink/tools/mavgen.py \
+            --lang C \
+            --wire-protocol 2.0 \
+            --strict-units \
+            --output generated/include/mavlink/v2.0/openhd \
+            message_definitions/v1.0/openhd.xml
+      - name: Commit generated headers
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add generated/include/mavlink/v2.0/openhd
+          git diff --cached --quiet && exit 0
+          git commit -m "Generate OpenHD headers"
+          git push
