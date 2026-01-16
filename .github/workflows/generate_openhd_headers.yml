@@ -34,14 +34,7 @@ jobs:
           pip install future lxml
       - name: Generate OpenHD headers
         run: |
-          rm -rf generated/include/mavlink/v2.0/openhd
-          mkdir -p generated/include/mavlink/v2.0/openhd
-          python pymavlink/tools/mavgen.py \
-            --lang C \
-            --wire-protocol 2.0 \
-            --strict-units \
-            --output generated/include/mavlink/v2.0/openhd \
-            message_definitions/v1.0/openhd.xml
+          bash scripts/generate_openhd_headers.sh
       - name: Upload OpenHD headers artifact
         uses: actions/upload-artifact@v4
         with:
