@@ -89,6 +89,9 @@
             <field type="uint32_t" name="count_p_injected">All injected (outgoing) packets</field>
             <field type="int8_t" name="curr_rx_packet_loss_perc">rx packet loss (for this card)</field>
             <field type="uint8_t" name="curr_status">set to 1 if something's wrong with the card</field>
+            <field type="int8_t" name="rx_snr_antenna1">SNR in dB for antenna1</field>
+            <field type="int8_t" name="rx_snr_antenna2">SNR in dB for antenna2</field>
+            <field type="int8_t" name="card_temperature">Wifi card temperature [degC]</field>
             <field type="int8_t" name="dummy0">for future use</field>
             <field type="int16_t" name="dummy1">for future use</field>
             <field type="int32_t" name="dummy2">for future use</field>
