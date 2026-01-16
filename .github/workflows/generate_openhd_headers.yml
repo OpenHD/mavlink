@@ -15,7 +15,7 @@ on:
       - .github/workflows/generate_openhd_headers.yml
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   generate-openhd:
@@ -42,12 +42,8 @@ jobs:
             --strict-units \
             --output generated/include/mavlink/v2.0/openhd \
             message_definitions/v1.0/openhd.xml
-      - name: Commit generated headers
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add generated/include/mavlink/v2.0/openhd
-          git diff --cached --quiet && exit 0
-          git commit -m "Generate OpenHD headers"
-          git push
+      - name: Upload OpenHD headers artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: openhd-mavlink-headers
+          path: generated/include/mavlink/v2.0/openhd
