@@ -3,6 +3,7 @@
 #define MAVLINK_ASSERT assert
 #include "openhd/mavlink.h"
 #include "mavlink_wire.hpp"
+#include "mavlink_statistics_encode.hpp"
 
 int main() {
     mavlink_message_t sent{}, received{};
@@ -22,4 +23,8 @@ int main() {
            MAVLINK_MSG_ID_OPENHD_WIFBROADCAST_RADIO_SETTINGS_CRC);
     assert(!wire::crc_extra(0xffffff));
     assert(wire::openhd_core_status::fields::platform_type == 18);
+    openhd::mavlink_types::openhd_stats_monitor_mode_wifi_card card{};
+    card.rx_rssi = -61;
+    auto converted = openhd::mavlink_types::to_mavlink(card);
+    assert(converted.rx_rssi == -61 && converted.count_p_received == 0);
 }

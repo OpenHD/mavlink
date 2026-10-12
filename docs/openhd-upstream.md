@@ -16,6 +16,7 @@ bash scripts/generate_openhd_headers.sh
 python3 scripts/check_openhd_wire.py /path/to/published/mavlink/v2.0
 python3 scripts/sync_openhd_wire.py --fleet /path/to/FleetControl \
   --webui /path/to/WebUI --glide /path/to/openhd-glide
+python3 scripts/sync_openhd_wire.py --openhd /path/to/OpenHD
 ```
 
 The pymavlink submodule pins the generator, including its XML include-parser
@@ -23,6 +24,9 @@ fix. Generated headers and descriptors are published together in
 OpenHD/mavlink-headers with XML/generator commits in source.json. C++ consumers
 pin that repository; other clients check in generated descriptors. Synchronize
 all consumers before release; use sync_openhd_wire.py --check to detect drift.
+OpenHD's internal statistics fields and telemetry conversions are generated as
+plain data plus a separate encoding adapter. Application-only state stays in
+OpenHD; the common/interface libraries have no MAVLink transport dependency.
 
 ## Compatibility and release order
 

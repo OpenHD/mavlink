@@ -8,6 +8,7 @@ p = argparse.ArgumentParser(description=__doc__)
 p.add_argument('--fleet', type=pathlib.Path)
 p.add_argument('--webui', type=pathlib.Path)
 p.add_argument('--glide', type=pathlib.Path)
+p.add_argument('--openhd', type=pathlib.Path)
 p.add_argument('--check', action='store_true')
 a = p.parse_args()
 files = products()
@@ -18,6 +19,9 @@ if a.webui:
     targets.append((a.webui / 'src/OpenHdWebUi.Server/Services/Settings/MavlinkWire.g.cs', 'MavlinkWire.g.cs'))
 if a.glide:
     targets.append((a.glide / 'src/common/mavlink_wire.hpp', 'mavlink_wire.hpp'))
+if a.openhd:
+    targets.append((a.openhd / 'OpenHD/ohd_common/inc/mavlink_statistics.hpp', 'mavlink_statistics.hpp'))
+    targets.append((a.openhd / 'OpenHD/ohd_telemetry/src/mavlink_statistics_encode.hpp', 'mavlink_statistics_encode.hpp'))
 if not targets:
     p.error('Specify at least one client checkout')
 for path, name in targets:

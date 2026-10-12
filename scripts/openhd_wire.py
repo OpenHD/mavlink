@@ -55,8 +55,31 @@ def products():
         cpp += f"namespace {m['name'].lower()} {{\ninline constexpr std::uint32_t id = {i};\nnamespace fields {{\n"
         cpp += "".join(f"inline constexpr unsigned {f} = {offset};\n" for f, offset in m['fields'].items()) + "}\n}\n"
     cpp += "}\n"
+    # Internal statistics data must not pull MAVLink transport into ohd_common.
+    # Generate plain, zero-initialized fields and a separate telemetry adapter.
+    data = banner + '#pragma once\n#include <cstdint>\nnamespace openhd::mavlink_types {\n'
+    adapter = banner + '#pragma once\n#include <algorithm>\n#include "mavlink_statistics.hpp"\n#include "openhd/mavlink.h"\nnamespace openhd::mavlink_types {\n'
+    xml = mavparse.MAVXML(str(ROOT / 'message_definitions/v1.0/openhd.xml'), wire_protocol_version='2.0')
+    for msg in xml.message:
+        if not (msg.name.startswith('OPENHD_STATS_') or msg.name == 'OPENHD_WIFBROADCAST_GND_OPERATING_MODE'):
+            continue
+        name = msg.name.lower()
+        data += f'struct {name} {{\n'
+        adapter += f'inline mavlink_{name}_t to_mavlink(const {name}& source) {{\n    mavlink_{name}_t result{{}};\n'
+        for f in msg.ordered_fields:
+            array = f'[{f.array_length}]' if f.array_length else ''
+            data += f'    {f.type} {f.name}{array}{{}};\n'
+            if f.array_length:
+                adapter += f'    std::copy_n(source.{f.name}, {f.array_length}, result.{f.name});\n'
+            else:
+                adapter += f'    result.{f.name} = source.{f.name};\n'
+        data += '};\n'
+        adapter += '    return result;\n}\n'
+    data += '}\n'
+    adapter += '}\n'
     return {"wire.json": json.dumps(messages, indent=2) + "\n", "mavlink-wire.ts": ts,
-            "MavlinkWire.g.cs": cs, "mavlink_wire.hpp": cpp}
+            "MavlinkWire.g.cs": cs, "mavlink_wire.hpp": cpp,
+            'mavlink_statistics.hpp': data, 'mavlink_statistics_encode.hpp': adapter}
 
 
 def main():
