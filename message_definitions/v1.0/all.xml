@@ -5,6 +5,10 @@
     commands: 42000 - 42999
   -->
   <include>ardupilotmega.xml</include>
+  <!-- OpenHD: existing deployed IDs; allocation subject to maintainer review. -->
+  <include>openhd.xml</include>
+  <!-- OpenHD: existing deployed IDs; allocation subject to maintainer review. -->
+  <include>openhd.xml</include>
   <!-- ASLUAV.xml range of IDs:
     messages: 8000 - 8999
     commands: 40001 - 41999
