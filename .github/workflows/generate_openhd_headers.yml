@@ -6,11 +6,13 @@ on:
       - openhd
     paths:
       - message_definitions/v1.0/openhd.xml
+      - scripts/**
       - pymavlink/**
       - .github/workflows/generate_openhd_headers.yml
   pull_request:
     paths:
       - message_definitions/v1.0/openhd.xml
+      - scripts/**
       - pymavlink/**
       - .github/workflows/generate_openhd_headers.yml
 
@@ -35,8 +37,21 @@ jobs:
       - name: Generate OpenHD headers
         run: |
           bash scripts/generate_openhd_headers.sh
+      - uses: actions/checkout@v4
+        with:
+          repository: OpenHD/mavlink-headers
+          ref: a5a23940d5681245d2bd95f9c00216b4be554a51
+          path: published-headers
+      - name: Check deployed wire compatibility
+        run: python scripts/check_openhd_wire.py published-headers/mavlink/v2.0
+      - name: Validate combined dialect
+        run: python pymavlink/tools/mavgen.py --lang C --wire-protocol 2.0 --output /tmp/all message_definitions/v1.0/all.xml
+      - name: Compile and test generated bindings
+        run: |
+          g++ -std=c++20 -Wno-address-of-packed-member -Igenerated/include/mavlink/v2.0 -Igenerated/wire scripts/test_openhd_generated.cpp -o /tmp/test-generated
+          /tmp/test-generated
       - name: Upload OpenHD headers artifact
         uses: actions/upload-artifact@v4
         with:
           name: openhd-mavlink-headers
-          path: generated/include/mavlink/v2.0/openhd
+          path: generated

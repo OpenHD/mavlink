@@ -1,38 +1,34 @@
 <?xml version='1.0'?>
 <mavlink>
-    <include>common.xml</include>
     <include>ardupilotmega.xml</include>
 
     <enums>
-        <enum name="OPENHD_CMD">
+        <enum name="MAV_CMD">
             <description>Commands for OpenHD</description>
-            <entry value="11200" name="OPENHD_CMD_INITIATE_CHANNEL_SEARCH" hasLocation="false" isDestination="false">
+            <entry value="11200" name="MAV_CMD_OPENHD_INITIATE_CHANNEL_SEARCH" hasLocation="false" isDestination="false">
                 <description>Initiate channel search, aka find the channel the air unit is currently running on</description>
-                <param index="1" label="Instance" minValue="0" increment="1">frequency channels to scan, 0=2.4G and 5.8G, 1: 2.4G only, 2: 5G only</param>
-                <param index="5">Empty</param>
-                <param index="6">Empty</param>
-                <param index="7">Empty</param>
+                <param index="1" label="Frequency bands" minValue="0" maxValue="2" increment="1">0: both bands, 1: 2.4 GHz only, 2: 5 GHz only.</param>
+                <param index="2" label="Channel widths" minValue="0" increment="1">Supported channel-width bitmask; zero selects the receiver default.</param>
+                <param index="3" label="Passive scan" minValue="0" maxValue="1" increment="1">0: normal scan, 1: passive Nexmon scan (requires supported hardware).</param>
+                <param index="4">Reserved; set to zero.</param>
+                <param index="5">Reserved; set to zero.</param>
+                <param index="6">Reserved; set to zero.</param>
+                <param index="7">Reserved; set to zero.</param>
             </entry>
 
-            <entry value="11201" name="OPENHD_CMD_INITIATE_CHANNEL_ANALYZE" hasLocation="false" isDestination="false">
-                <description>Initiate channel analyze, aka find the least polluted channel</description>
-                <param index="5">Empty</param>
-                <param index="6">Empty</param>
-                <param index="7">Empty</param>
+            <entry value="11201" name="MAV_CMD_OPENHD_INITIATE_CHANNEL_ANALYZE" hasLocation="false" isDestination="false">
+                <description>Analyze channels to find the least polluted channel.</description>
+                <param index="1" label="Frequency bands" minValue="0" maxValue="2" increment="1">0: both bands, 1: 2.4 GHz only, 2: 5 GHz only.</param>
+                <param index="5">Reserved; set to zero.</param>
+                <param index="6">Reserved; set to zero.</param>
+                <param index="7">Reserved; set to zero.</param>
             </entry>
 
-            <entry value="11202" name="OPENHD_CMD_DUMMY1" hasLocation="false" isDestination="false">
-                <description>dummy1</description>
-                <param index="5">Empty</param>
-                <param index="6">Empty</param>
-                <param index="7">Empty</param>
-            </entry>
-
-            <entry value="11203" name="OPENHD_CMD_DUMMY2" hasLocation="false" isDestination="false">
-                <description>dummy2</description>
-                <param index="5">Empty</param>
-                <param index="6">Empty</param>
-                <param index="7">Empty</param>
+            <entry value="11202" name="MAV_CMD_OPENHD_STORAGE_MANAGE" hasLocation="false" isDestination="false">
+                <description>Manage Air recording storage. Only non-root storage may be modified. The receiver validates the storage ID and confirmation before changing storage.</description>
+                <param index="1" label="Action" minValue="1" maxValue="6" increment="1">1: refresh inventory, 2: repartition disk, 3: select recording destination, 4: move recordings to destination, 5: create partition, 6: resize partition.</param>
+                <param index="2" label="Storage ID" minValue="1" maxValue="254" increment="1">Storage ID from the receiver's inventory.</param>
+                <param index="3" label="Confirmation" minValue="0" maxValue="1" increment="1">1 required for state-changing actions; 0 for an inventory refresh.</param>
             </entry>
 
         </enum>
@@ -69,7 +65,7 @@
 
         <message id="1212" name="OPENHD_STATS_MONITOR_MODE_WIFI_CARD">
             <wip />
-            <description>Statstics for a monitor mode wifi card</description>
+            <description>Statistics for a monitor-mode Wi-Fi card.</description>
             <field type="uint8_t" name="card_index">Ground might have multiple card(s) for diversity.</field>
             <field type="uint8_t" name="card_type">See openhd card_type enum</field>
             <field type="uint8_t" name="tx_active">On ground stations with multiple card(s), only one card is selected for TX at a time.</field>
@@ -294,6 +290,16 @@
         <message id="1230" name="OPENHD_RTSP_CONFIGURATION">
             <description>RTSP Stream Configuration</description>
             <field type="char[255]" name="stream_uri">RTSP Stream URI</field>
+        </message>
+
+        <message id="1231" name="OPENHD_WIFBROADCAST_RADIO_SETTINGS">
+            <description>Configure RC-driven OpenHD radio control on the addressed system. Zero disables a channel assignment.</description>
+            <field type="uint8_t" name="target_system">Target system ID.</field>
+            <field type="uint8_t" name="target_component">Target component ID; zero addresses all components.</field>
+            <field type="uint8_t" name="enable_rc_openhd_control">Enable RC-driven radio control: 0 disabled, 1 enabled.</field>
+            <field type="uint8_t" name="mcs_via_rc_channel">RC channel for MCS selection: 0 disabled, 1 to 18 channel number.</field>
+            <field type="uint8_t" name="bw_via_rc_channel">RC channel for bandwidth selection: 0 disabled, 1 to 18 channel number.</field>
+            <field type="uint8_t" name="tx_mode_via_rc_channel">RC channel for transmit-mode selection: 0 disabled, 1 to 18 channel number.</field>
         </message>
 
     </messages>
